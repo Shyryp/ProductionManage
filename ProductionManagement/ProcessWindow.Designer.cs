@@ -72,7 +72,6 @@
             // 
             // tabControlForm
             // 
-            this.tabControlForm.Appearance = System.Windows.Forms.TabAppearance.Buttons;
             this.tabControlForm.Controls.Add(this.tabPageMain);
             this.tabControlForm.Controls.Add(this.tabPageGraph);
             this.tabControlForm.Controls.Add(this.tabPageStatistics);
@@ -85,29 +84,29 @@
             // 
             // tabPageMain
             // 
-            this.tabPageMain.Location = new System.Drawing.Point(4, 25);
+            this.tabPageMain.Location = new System.Drawing.Point(4, 22);
             this.tabPageMain.Name = "tabPageMain";
             this.tabPageMain.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageMain.Size = new System.Drawing.Size(579, 340);
+            this.tabPageMain.Size = new System.Drawing.Size(579, 343);
             this.tabPageMain.TabIndex = 0;
             this.tabPageMain.Text = "Основное окно";
             this.tabPageMain.UseVisualStyleBackColor = true;
             // 
             // tabPageGraph
             // 
-            this.tabPageGraph.Location = new System.Drawing.Point(4, 25);
+            this.tabPageGraph.Location = new System.Drawing.Point(4, 22);
             this.tabPageGraph.Name = "tabPageGraph";
             this.tabPageGraph.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageGraph.Size = new System.Drawing.Size(579, 340);
+            this.tabPageGraph.Size = new System.Drawing.Size(579, 343);
             this.tabPageGraph.TabIndex = 1;
             this.tabPageGraph.Text = "Временной график";
             this.tabPageGraph.UseVisualStyleBackColor = true;
             // 
             // tabPageStatistics
             // 
-            this.tabPageStatistics.Location = new System.Drawing.Point(4, 25);
+            this.tabPageStatistics.Location = new System.Drawing.Point(4, 22);
             this.tabPageStatistics.Name = "tabPageStatistics";
-            this.tabPageStatistics.Size = new System.Drawing.Size(579, 340);
+            this.tabPageStatistics.Size = new System.Drawing.Size(579, 343);
             this.tabPageStatistics.TabIndex = 2;
             this.tabPageStatistics.Text = "Статистика";
             this.tabPageStatistics.UseVisualStyleBackColor = true;

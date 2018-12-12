@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace ProductionManagement
 {
-    public partial class StartWindow : Form
+    public partial class ResetPassword : Form
     {
-        public StartWindow()
+        public ResetPassword()
         {
             InitializeComponent();
-        }
-
-        private void linkLabelErrorPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-
-        }
-
-        private void bEnter_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
