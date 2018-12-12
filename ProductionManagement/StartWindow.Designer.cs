@@ -1,6 +1,6 @@
 ﻿namespace ProductionManagement
 {
-    partial class Form1
+    partial class StartWindow
     {
         /// <summary>
         /// Обязательная переменная конструктора.

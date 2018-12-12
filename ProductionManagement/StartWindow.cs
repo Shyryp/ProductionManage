@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ProductionManagement
 {
-    public partial class Form1 : Form
+    public partial class StartWindow : Form
     {
-        public Form1()
+        public StartWindow()
         {
             InitializeComponent();
         }
