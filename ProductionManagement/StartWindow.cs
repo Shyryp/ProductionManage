@@ -12,19 +12,31 @@ namespace ProductionManagement
 {
     public partial class StartWindow : Form
     {
+        Process proc;
         public StartWindow()
         {
             InitializeComponent();
+            
         }
 
-        private void linkLabelErrorPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        public StartWindow(Process p)
         {
-
+            InitializeComponent();
+            this.proc = p;
         }
 
         private void bEnter_Click(object sender, EventArgs e)
         {
+            //Проверка логина и пароля по базе
 
+
+            proc.Login = tbLogin.Text;
+            this.Close();
+        }
+
+        private void lErrorPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Application.Run(new ResetPassword());
         }
     }
 }

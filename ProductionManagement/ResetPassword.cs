@@ -16,5 +16,10 @@ namespace ProductionManagement
         {
             InitializeComponent();
         }
+
+        private void bEnter_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
