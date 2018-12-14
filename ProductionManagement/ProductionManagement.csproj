@@ -62,6 +62,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Company.cs" />
+    <Compile Include="DatabasePMDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabasePMDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Department.cs" />
     <Compile Include="Process.cs" />
     <Compile Include="ProcessWindow.cs">
@@ -106,6 +111,17 @@
     <EmbeddedResource Include="StartWindow.resx">
       <DependentUpon>StartWindow.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="DatabasePMDataSet.xsc">
+      <DependentUpon>DatabasePMDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DatabasePMDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DatabasePMDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DatabasePMDataSet.xss">
+      <DependentUpon>DatabasePMDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

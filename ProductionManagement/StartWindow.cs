@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace ProductionManagement
 {
     public partial class StartWindow : Form
     {
+        SqlConnection sqlConnection;
         Process proc;
         public StartWindow()
         {
@@ -25,10 +27,10 @@ namespace ProductionManagement
             this.proc = p;
         }
 
-        private void bEnter_Click(object sender, EventArgs e)
+        private async void bEnter_Click(object sender, EventArgs e)
         {
             //Проверка логина и пароля по базе
-
+            
 
             proc.Login = tbLogin.Text;
             this.Close();
@@ -37,6 +39,22 @@ namespace ProductionManagement
         private void lErrorPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Application.Run(new ResetPassword());
+        }
+
+        private async void StartWindow_Load(object sender, EventArgs e)
+        {
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Shyrik\source\repos\ProductionManagement\ProductionManagement\DatabasePM.mdf;Integrated Security=True";
+            sqlConnection = new SqlConnection(connectionString);
+
+            await sqlConnection.OpenAsync();
+        }
+
+        private void StartWindow_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (sqlConnection != null && sqlConnection.State != ConnectionState.Closed)
+            {
+                sqlConnection.Close();
+            }
         }
     }
 }
