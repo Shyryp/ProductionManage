@@ -43,7 +43,15 @@ namespace ProductionManagement
                     {
                         if (Convert.ToString(sqlDataReader["Password"]) == tbPassword.Text)
                         {
-                            proc.Login = tbLogin.Text;
+                            creator.IDUser = Convert.ToInt32(sqlDataReader["Id"]);
+                            creator.NameUser = Convert.ToString(sqlDataReader["NameUser"]);
+                            creator.LoginUser = Convert.ToString(sqlDataReader["Login"]);
+                            creator.Password = Convert.ToString(sqlDataReader["Password"]);
+                            creator.IDRole = Convert.ToInt32(sqlDataReader["id_role"]);
+                            creator.IDCompany = Convert.ToInt32(sqlDataReader["id_company"]);
+                            creator.SecretQeustion = Convert.ToString(sqlDataReader["SecretQeustion"]);
+                            creator.SecretAnswer = Convert.ToString(sqlDataReader["SecretAnswer"]);
+                            creator.Salary = Convert.ToInt32(sqlDataReader["Salary"]);
                             this.Close();
                         }
                         else {
@@ -70,7 +78,8 @@ namespace ProductionManagement
 
         private void lErrorPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Application.Run(new ResetPassword());
+            ResetPassword resetPassword = new ResetPassword(this,tbLogin.Text);
+            resetPassword.Show();
         }
 
         private async void StartWindow_Load(object sender, EventArgs e)

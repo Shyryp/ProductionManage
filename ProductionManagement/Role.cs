@@ -16,7 +16,6 @@ namespace ProductionManagement
         public bool Access_ESalary { get; set; } = false;
         public bool Access_Creator { get; set; } = false;
         public int IDCompany { get; set; } = 0;
-        public int Salary { get; set; } = 0;
         public int IDDepartament { get; set; } = 0;
 
     }

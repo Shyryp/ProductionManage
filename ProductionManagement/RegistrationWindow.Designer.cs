@@ -61,6 +61,7 @@
             this.tbNewLogin.Name = "tbNewLogin";
             this.tbNewLogin.Size = new System.Drawing.Size(205, 20);
             this.tbNewLogin.TabIndex = 7;
+            this.tbNewLogin.Text = "Shyryp";
             // 
             // tbNewPassword
             // 
@@ -69,6 +70,7 @@
             this.tbNewPassword.Name = "tbNewPassword";
             this.tbNewPassword.Size = new System.Drawing.Size(205, 20);
             this.tbNewPassword.TabIndex = 8;
+            this.tbNewPassword.Text = "12345";
             // 
             // lNewPassword
             // 
@@ -107,6 +109,7 @@
             this.tbConfirmPassword.Name = "tbConfirmPassword";
             this.tbConfirmPassword.Size = new System.Drawing.Size(205, 20);
             this.tbConfirmPassword.TabIndex = 11;
+            this.tbConfirmPassword.Text = "12345";
             // 
             // lNewName
             // 
@@ -125,6 +128,7 @@
             this.tbNewName.Name = "tbNewName";
             this.tbNewName.Size = new System.Drawing.Size(205, 20);
             this.tbNewName.TabIndex = 13;
+            this.tbNewName.Text = "Александр";
             // 
             // lNewQeustion
             // 
@@ -143,6 +147,7 @@
             this.tbNewSecretQeustion.Name = "tbNewSecretQeustion";
             this.tbNewSecretQeustion.Size = new System.Drawing.Size(205, 20);
             this.tbNewSecretQeustion.TabIndex = 15;
+            this.tbNewSecretQeustion.Text = "Вопрос";
             // 
             // lNewAnswer
             // 
@@ -161,6 +166,7 @@
             this.tbNewSecretAnswer.Name = "tbNewSecretAnswer";
             this.tbNewSecretAnswer.Size = new System.Drawing.Size(205, 20);
             this.tbNewSecretAnswer.TabIndex = 17;
+            this.tbNewSecretAnswer.Text = "Ответ";
             // 
             // RegistrationWindow
             // 

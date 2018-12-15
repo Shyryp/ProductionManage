@@ -56,6 +56,7 @@
             this.tbLogin.Name = "tbLogin";
             this.tbLogin.Size = new System.Drawing.Size(205, 20);
             this.tbLogin.TabIndex = 1;
+            this.tbLogin.Text = "Shyryp";
             // 
             // tbPassword
             // 
@@ -64,6 +65,7 @@
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(205, 20);
             this.tbPassword.TabIndex = 2;
+            this.tbPassword.Text = "12345";
             // 
             // label1
             // 

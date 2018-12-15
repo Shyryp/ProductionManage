@@ -31,27 +31,28 @@ namespace ProductionManagement
 
         private async void ProcessWindow_Load(object sender, EventArgs e)
         {
+            this.WindowState = FormWindowState.Minimized;
             string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Shyrik\source\repos\ProductionManagement\ProductionManagement\DatabasePM.mdf;Integrated Security=True";
             sqlConnection = new SqlConnection(connectionString);
             await sqlConnection.OpenAsync();
 
+            string[] arr = { creator.IDUser.ToString(), creator.NameUser,
+            creator.LoginUser, creator.Salary.ToString()};
+            var itemDBUser = new ListViewItem(arr);
+            lVUser.Items.Add(itemDBUser);
 
 
 
 
-
-            SqlDataReader sqlDataReader = null;
-            SqlCommand sqlCommand = new SqlCommand("SELECT * FROM [Departament] WHERE Id_company = ", sqlConnection);
+            //SqlDataReader sqlDataReader = null;
+            //SqlCommand sqlCommand = new SqlCommand("SELECT * FROM [Departament] WHERE Id_company = ", sqlConnection);
 
             try
             {
-                sqlDataReader = await sqlCommand.ExecuteReaderAsync();
-                string[] arr = { };
-                arr[0] = "product_1";
-                arr[1] = "100";
-                arr[2] = "10";
-                var itemDBUser = new ListViewItem(arr);
-                lVUser.Items.Add(itemDBUser);
+                //sqlDataReader = await sqlCommand.ExecuteReaderAsync();
+                //string[] arr = { };
+                //var itemDBUser = new ListViewItem(arr);
+                //lVUser.Items.Add(itemDBUser);
             }
             catch (Exception ex)
             {
@@ -59,11 +60,12 @@ namespace ProductionManagement
             }
             finally
             {
-                if (sqlDataReader != null)
-                {
-                    sqlDataReader.Close();
-                }
+                //if (sqlDataReader != null)
+                //{
+                //    sqlDataReader.Close();
+                //}
             }
+            this.WindowState = FormWindowState.Normal;
         }
 
         private void bCreateDepart_Click(object sender, EventArgs e)
@@ -143,7 +145,7 @@ namespace ProductionManagement
 
         private void bExit_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }

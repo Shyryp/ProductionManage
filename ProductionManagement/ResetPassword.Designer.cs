@@ -35,8 +35,7 @@
             this.tbQeustion = new System.Windows.Forms.TextBox();
             this.tbNewPassword = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lQeustion = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // bEnter
@@ -46,7 +45,7 @@
             this.bEnter.Name = "bEnter";
             this.bEnter.Size = new System.Drawing.Size(102, 23);
             this.bEnter.TabIndex = 0;
-            this.bEnter.Text = "Подтвердить";
+            this.bEnter.Text = "Продолжить";
             this.bEnter.UseVisualStyleBackColor = true;
             this.bEnter.Click += new System.EventHandler(this.bEnter_Click);
             // 
@@ -70,7 +69,6 @@
             this.label2.Size = new System.Drawing.Size(111, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Ответьте на вопрос:";
-            this.label2.Visible = false;
             // 
             // tbLogin
             // 
@@ -88,7 +86,6 @@
             this.tbQeustion.Name = "tbQeustion";
             this.tbQeustion.Size = new System.Drawing.Size(171, 20);
             this.tbQeustion.TabIndex = 4;
-            this.tbQeustion.Visible = false;
             // 
             // tbNewPassword
             // 
@@ -98,7 +95,6 @@
             this.tbNewPassword.Name = "tbNewPassword";
             this.tbNewPassword.Size = new System.Drawing.Size(171, 20);
             this.tbNewPassword.TabIndex = 5;
-            this.tbNewPassword.Visible = false;
             // 
             // label3
             // 
@@ -110,39 +106,24 @@
             this.label3.Size = new System.Drawing.Size(123, 13);
             this.label3.TabIndex = 6;
             this.label3.Text = "Введите новый пароль";
-            this.label3.Visible = false;
             // 
-            // label4
+            // lQeustion
             // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.AutoSize = true;
-            this.label4.Enabled = false;
-            this.label4.Location = new System.Drawing.Point(12, 116);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 13);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Вопрос";
-            this.label4.Visible = false;
-            // 
-            // label5
-            // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label5.AutoSize = true;
-            this.label5.Enabled = false;
-            this.label5.Location = new System.Drawing.Point(112, 170);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(93, 13);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Ответ не верный";
-            this.label5.Visible = false;
+            this.lQeustion.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lQeustion.AutoSize = true;
+            this.lQeustion.Location = new System.Drawing.Point(12, 116);
+            this.lQeustion.Name = "lQeustion";
+            this.lQeustion.Size = new System.Drawing.Size(44, 13);
+            this.lQeustion.TabIndex = 7;
+            this.lQeustion.Text = "Вопрос";
+            this.lQeustion.Visible = false;
             // 
             // ResetPassword
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(304, 281);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lQeustion);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tbNewPassword);
             this.Controls.Add(this.tbQeustion);
@@ -154,6 +135,8 @@
             this.MinimumSize = new System.Drawing.Size(320, 320);
             this.Name = "ResetPassword";
             this.Text = "Смена пароля";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ResetPassword_FormClosing);
+            this.Load += new System.EventHandler(this.ResetPassword_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -168,7 +151,6 @@
         private System.Windows.Forms.TextBox tbQeustion;
         private System.Windows.Forms.TextBox tbNewPassword;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lQeustion;
     }
 }

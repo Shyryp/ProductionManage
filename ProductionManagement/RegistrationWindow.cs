@@ -71,7 +71,7 @@ namespace ProductionManagement
 
                 //Создаём роль создателя в базе
                 sqlCommandInsert =
-                    new SqlCommand("INSERT INTO [Role] (NameRole,Access_EUser,Access_ETask,Access_ESalary,Access_Creator,Id_company,Salary,Id_departament)VALUES(@NameRole,@Access_EUser,@Access_ETask,@Access_ESalary,@Access_Creator,@Id_company,@Salary,@Id_departament)",
+                    new SqlCommand("INSERT INTO [Role] (NameRole,Access_EUser,Access_ETask,Access_ESalary,Access_Creator,Id_company,Id_departament)VALUES(@NameRole,@Access_EUser,@Access_ETask,@Access_ESalary,@Access_Creator,@Id_company,@Id_departament)",
                     sqlConnection);
                 sqlCommandInsert.Parameters.AddWithValue("NameRole", "Создатель");
                 sqlCommandInsert.Parameters.AddWithValue("Access_EUser", true);
@@ -79,7 +79,6 @@ namespace ProductionManagement
                 sqlCommandInsert.Parameters.AddWithValue("Access_ESalary", true);
                 sqlCommandInsert.Parameters.AddWithValue("Access_Creator", true);
                 sqlCommandInsert.Parameters.AddWithValue("Id_company", count);
-                sqlCommandInsert.Parameters.AddWithValue("Salary", 0);
                 sqlCommandInsert.Parameters.AddWithValue("Id_departament", countDepart);
                 await sqlCommandInsert.ExecuteNonQueryAsync();
                 
@@ -89,7 +88,7 @@ namespace ProductionManagement
 
                 //создаём (регистрируем) аккаунт создателя компании
                 sqlCommandInsert = 
-                    new SqlCommand("INSERT INTO [User] (NameUser,Login,Password,id_role,id_company,SecretQeustion,SecretAnswer)VALUES(@NameUser,@Login,@Password,@id_role,@id_company,@SecretQeustion,@SecretAnswer)", 
+                    new SqlCommand("INSERT INTO [User] (NameUser,Login,Password,id_role,id_company,SecretQeustion,SecretAnswer,Salary)VALUES(@NameUser,@Login,@Password,@id_role,@id_company,@SecretQeustion,@SecretAnswer,@Salary)", 
                     sqlConnection);
                 sqlCommandInsert.Parameters.AddWithValue("NameUser", tbNewName.Text);
                 sqlCommandInsert.Parameters.AddWithValue("Login", tbNewLogin.Text);
@@ -98,6 +97,7 @@ namespace ProductionManagement
                 sqlCommandInsert.Parameters.AddWithValue("id_company", count);
                 sqlCommandInsert.Parameters.AddWithValue("SecretQeustion", tbNewSecretQeustion.Text);
                 sqlCommandInsert.Parameters.AddWithValue("SecretAnswer", tbNewSecretAnswer.Text);
+                sqlCommandInsert.Parameters.AddWithValue("Salary", 0);
                 await sqlCommandInsert.ExecuteNonQueryAsync();
 
                 startWindow.Visible = true;
