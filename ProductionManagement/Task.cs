@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace ProductionManagement
 {
-    class Department
+    class Task
     {
+
+
     }
 }

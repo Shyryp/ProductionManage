@@ -34,7 +34,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.tabControlForm = new System.Windows.Forms.TabControl();
             this.tabPageDepart = new System.Windows.Forms.TabPage();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.lVDepartament = new System.Windows.Forms.ListView();
             this.IDDepart = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.NameDepart = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.NumberUser = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -45,44 +45,44 @@
             this.bChangeDepart = new System.Windows.Forms.Button();
             this.bCreateDepart = new System.Windows.Forms.Button();
             this.tabPageUser = new System.Windows.Forms.TabPage();
-            this.listView2 = new System.Windows.Forms.ListView();
+            this.lVUser = new System.Windows.Forms.ListView();
             this.IDUser = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.NameUser = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.LoginUser = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.SalaryUser = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel3 = new System.Windows.Forms.Panel();
             this.bChangeSalary = new System.Windows.Forms.Button();
             this.bDeleteUser = new System.Windows.Forms.Button();
             this.bChangeUser = new System.Windows.Forms.Button();
             this.bAddUser = new System.Windows.Forms.Button();
             this.tabPageTask = new System.Windows.Forms.TabPage();
-            this.listView3 = new System.Windows.Forms.ListView();
+            this.lVTask = new System.Windows.Forms.ListView();
             this.IDTask = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.NameTask = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.TaskCost = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.TaskDeadline = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.NameCreator = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel5 = new System.Windows.Forms.Panel();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.cVisibleBusyTask = new System.Windows.Forms.CheckBox();
+            this.bToTakeTask = new System.Windows.Forms.Button();
             this.bMoreInfo = new System.Windows.Forms.Button();
             this.bDeleteTask = new System.Windows.Forms.Button();
             this.bChangeTask = new System.Windows.Forms.Button();
             this.bCreateTask = new System.Windows.Forms.Button();
             this.tabPageNowTask = new System.Windows.Forms.TabPage();
-            this.listView4 = new System.Windows.Forms.ListView();
+            this.lVBusyTask = new System.Windows.Forms.ListView();
             this.IDBusyTask = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.NameBusyTask = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.BusyTaskCost = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.BusyTaskDeadline = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.BusyTaskCreator = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel6 = new System.Windows.Forms.Panel();
             this.button9 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
             this.departamentBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.NameCreator = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.bToTakeTask = new System.Windows.Forms.Button();
-            this.cVisibleBusyTask = new System.Windows.Forms.CheckBox();
-            this.BusyTaskCreator = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.SalaryUser = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControlForm.SuspendLayout();
@@ -143,7 +143,7 @@
             // 
             // tabPageDepart
             // 
-            this.tabPageDepart.Controls.Add(this.listView1);
+            this.tabPageDepart.Controls.Add(this.lVDepartament);
             this.tabPageDepart.Controls.Add(this.panel4);
             this.tabPageDepart.Location = new System.Drawing.Point(4, 22);
             this.tabPageDepart.Name = "tabPageDepart";
@@ -153,21 +153,21 @@
             this.tabPageDepart.Text = "Список отделов";
             this.tabPageDepart.UseVisualStyleBackColor = true;
             // 
-            // listView1
+            // lVDepartament
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.lVDepartament.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.IDDepart,
             this.NameDepart,
             this.NumberUser,
             this.CreatorUser});
-            this.listView1.FullRowSelect = true;
-            this.listView1.GridLines = true;
-            this.listView1.Location = new System.Drawing.Point(6, 6);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(363, 332);
-            this.listView1.TabIndex = 2;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.lVDepartament.FullRowSelect = true;
+            this.lVDepartament.GridLines = true;
+            this.lVDepartament.Location = new System.Drawing.Point(6, 6);
+            this.lVDepartament.Name = "lVDepartament";
+            this.lVDepartament.Size = new System.Drawing.Size(363, 332);
+            this.lVDepartament.TabIndex = 2;
+            this.lVDepartament.UseCompatibleStateImageBehavior = false;
+            this.lVDepartament.View = System.Windows.Forms.View.Details;
             // 
             // IDDepart
             // 
@@ -243,7 +243,7 @@
             // 
             // tabPageUser
             // 
-            this.tabPageUser.Controls.Add(this.listView2);
+            this.tabPageUser.Controls.Add(this.lVUser);
             this.tabPageUser.Controls.Add(this.panel3);
             this.tabPageUser.Location = new System.Drawing.Point(4, 22);
             this.tabPageUser.Name = "tabPageUser";
@@ -253,21 +253,21 @@
             this.tabPageUser.Text = "Список сотрудников";
             this.tabPageUser.UseVisualStyleBackColor = true;
             // 
-            // listView2
+            // lVUser
             // 
-            this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.lVUser.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.IDUser,
             this.NameUser,
             this.LoginUser,
             this.SalaryUser});
-            this.listView2.FullRowSelect = true;
-            this.listView2.GridLines = true;
-            this.listView2.Location = new System.Drawing.Point(5, 6);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(363, 332);
-            this.listView2.TabIndex = 4;
-            this.listView2.UseCompatibleStateImageBehavior = false;
-            this.listView2.View = System.Windows.Forms.View.Details;
+            this.lVUser.FullRowSelect = true;
+            this.lVUser.GridLines = true;
+            this.lVUser.Location = new System.Drawing.Point(5, 6);
+            this.lVUser.Name = "lVUser";
+            this.lVUser.Size = new System.Drawing.Size(363, 332);
+            this.lVUser.TabIndex = 4;
+            this.lVUser.UseCompatibleStateImageBehavior = false;
+            this.lVUser.View = System.Windows.Forms.View.Details;
             // 
             // IDUser
             // 
@@ -283,6 +283,11 @@
             // 
             this.LoginUser.Text = "Логин";
             this.LoginUser.Width = 96;
+            // 
+            // SalaryUser
+            // 
+            this.SalaryUser.Text = "Зарплата";
+            this.SalaryUser.Width = 81;
             // 
             // panel3
             // 
@@ -338,7 +343,7 @@
             // 
             // tabPageTask
             // 
-            this.tabPageTask.Controls.Add(this.listView3);
+            this.tabPageTask.Controls.Add(this.lVTask);
             this.tabPageTask.Controls.Add(this.panel5);
             this.tabPageTask.Location = new System.Drawing.Point(4, 22);
             this.tabPageTask.Name = "tabPageTask";
@@ -347,22 +352,22 @@
             this.tabPageTask.Text = "Список задач";
             this.tabPageTask.UseVisualStyleBackColor = true;
             // 
-            // listView3
+            // lVTask
             // 
-            this.listView3.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.lVTask.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.IDTask,
             this.NameTask,
             this.TaskCost,
             this.TaskDeadline,
             this.NameCreator});
-            this.listView3.FullRowSelect = true;
-            this.listView3.GridLines = true;
-            this.listView3.Location = new System.Drawing.Point(5, 6);
-            this.listView3.Name = "listView3";
-            this.listView3.Size = new System.Drawing.Size(363, 332);
-            this.listView3.TabIndex = 4;
-            this.listView3.UseCompatibleStateImageBehavior = false;
-            this.listView3.View = System.Windows.Forms.View.Details;
+            this.lVTask.FullRowSelect = true;
+            this.lVTask.GridLines = true;
+            this.lVTask.Location = new System.Drawing.Point(5, 6);
+            this.lVTask.Name = "lVTask";
+            this.lVTask.Size = new System.Drawing.Size(363, 332);
+            this.lVTask.TabIndex = 4;
+            this.lVTask.UseCompatibleStateImageBehavior = false;
+            this.lVTask.View = System.Windows.Forms.View.Details;
             // 
             // IDTask
             // 
@@ -384,6 +389,11 @@
             this.TaskDeadline.Text = "Срок";
             this.TaskDeadline.Width = 79;
             // 
+            // NameCreator
+            // 
+            this.NameCreator.Text = "Создатель";
+            this.NameCreator.Width = 70;
+            // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.Gainsboro;
@@ -398,6 +408,38 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(198, 338);
             this.panel5.TabIndex = 3;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(26, 194);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(148, 17);
+            this.checkBox1.TabIndex = 6;
+            this.checkBox1.Text = "Скрыть занятые задачи";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // cVisibleBusyTask
+            // 
+            this.cVisibleBusyTask.AutoSize = true;
+            this.cVisibleBusyTask.Location = new System.Drawing.Point(26, 228);
+            this.cVisibleBusyTask.Name = "cVisibleBusyTask";
+            this.cVisibleBusyTask.Size = new System.Drawing.Size(161, 17);
+            this.cVisibleBusyTask.TabIndex = 5;
+            this.cVisibleBusyTask.Text = "Скрыть свободные задачи";
+            this.cVisibleBusyTask.UseVisualStyleBackColor = true;
+            this.cVisibleBusyTask.CheckedChanged += new System.EventHandler(this.cVisibleBusyTask_CheckedChanged);
+            // 
+            // bToTakeTask
+            // 
+            this.bToTakeTask.Location = new System.Drawing.Point(7, 302);
+            this.bToTakeTask.Name = "bToTakeTask";
+            this.bToTakeTask.Size = new System.Drawing.Size(186, 33);
+            this.bToTakeTask.TabIndex = 4;
+            this.bToTakeTask.Text = "Взять задачу";
+            this.bToTakeTask.UseVisualStyleBackColor = true;
+            this.bToTakeTask.Click += new System.EventHandler(this.bToTakeTask_Click);
             // 
             // bMoreInfo
             // 
@@ -441,7 +483,7 @@
             // 
             // tabPageNowTask
             // 
-            this.tabPageNowTask.Controls.Add(this.listView4);
+            this.tabPageNowTask.Controls.Add(this.lVBusyTask);
             this.tabPageNowTask.Controls.Add(this.panel6);
             this.tabPageNowTask.Location = new System.Drawing.Point(4, 22);
             this.tabPageNowTask.Name = "tabPageNowTask";
@@ -450,22 +492,22 @@
             this.tabPageNowTask.Text = "Выполняемые задачи";
             this.tabPageNowTask.UseVisualStyleBackColor = true;
             // 
-            // listView4
+            // lVBusyTask
             // 
-            this.listView4.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.lVBusyTask.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.IDBusyTask,
             this.NameBusyTask,
             this.BusyTaskCost,
             this.BusyTaskDeadline,
             this.BusyTaskCreator});
-            this.listView4.FullRowSelect = true;
-            this.listView4.GridLines = true;
-            this.listView4.Location = new System.Drawing.Point(5, 6);
-            this.listView4.Name = "listView4";
-            this.listView4.Size = new System.Drawing.Size(363, 332);
-            this.listView4.TabIndex = 4;
-            this.listView4.UseCompatibleStateImageBehavior = false;
-            this.listView4.View = System.Windows.Forms.View.Details;
+            this.lVBusyTask.FullRowSelect = true;
+            this.lVBusyTask.GridLines = true;
+            this.lVBusyTask.Location = new System.Drawing.Point(5, 6);
+            this.lVBusyTask.Name = "lVBusyTask";
+            this.lVBusyTask.Size = new System.Drawing.Size(363, 332);
+            this.lVBusyTask.TabIndex = 4;
+            this.lVBusyTask.UseCompatibleStateImageBehavior = false;
+            this.lVBusyTask.View = System.Windows.Forms.View.Details;
             // 
             // IDBusyTask
             // 
@@ -486,6 +528,11 @@
             // 
             this.BusyTaskDeadline.Text = "Срок";
             this.BusyTaskDeadline.Width = 83;
+            // 
+            // BusyTaskCreator
+            // 
+            this.BusyTaskCreator.Text = "Создатель";
+            this.BusyTaskCreator.Width = 75;
             // 
             // panel6
             // 
@@ -535,53 +582,6 @@
             this.button12.Text = "Создать отдел";
             this.button12.UseVisualStyleBackColor = true;
             // 
-            // NameCreator
-            // 
-            this.NameCreator.Text = "Создатель";
-            this.NameCreator.Width = 70;
-            // 
-            // bToTakeTask
-            // 
-            this.bToTakeTask.Location = new System.Drawing.Point(7, 302);
-            this.bToTakeTask.Name = "bToTakeTask";
-            this.bToTakeTask.Size = new System.Drawing.Size(186, 33);
-            this.bToTakeTask.TabIndex = 4;
-            this.bToTakeTask.Text = "Взять задачу";
-            this.bToTakeTask.UseVisualStyleBackColor = true;
-            this.bToTakeTask.Click += new System.EventHandler(this.bToTakeTask_Click);
-            // 
-            // cVisibleBusyTask
-            // 
-            this.cVisibleBusyTask.AutoSize = true;
-            this.cVisibleBusyTask.Location = new System.Drawing.Point(26, 228);
-            this.cVisibleBusyTask.Name = "cVisibleBusyTask";
-            this.cVisibleBusyTask.Size = new System.Drawing.Size(161, 17);
-            this.cVisibleBusyTask.TabIndex = 5;
-            this.cVisibleBusyTask.Text = "Скрыть свободные задачи";
-            this.cVisibleBusyTask.UseVisualStyleBackColor = true;
-            this.cVisibleBusyTask.CheckedChanged += new System.EventHandler(this.cVisibleBusyTask_CheckedChanged);
-            // 
-            // BusyTaskCreator
-            // 
-            this.BusyTaskCreator.Text = "Создатель";
-            this.BusyTaskCreator.Width = 75;
-            // 
-            // SalaryUser
-            // 
-            this.SalaryUser.Text = "Зарплата";
-            this.SalaryUser.Width = 81;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(26, 194);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(148, 17);
-            this.checkBox1.TabIndex = 6;
-            this.checkBox1.Text = "Скрыть занятые задачи";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            // 
             // ProcessWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -627,12 +627,12 @@
         private System.Windows.Forms.Button bChangeRoleInDepart;
         private System.Windows.Forms.Button bDeleteDepart;
         private System.Windows.Forms.Button bChangeDepart;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView lVDepartament;
         private System.Windows.Forms.ColumnHeader IDDepart;
         private System.Windows.Forms.ColumnHeader NameDepart;
         private System.Windows.Forms.ColumnHeader NumberUser;
         private System.Windows.Forms.ColumnHeader CreatorUser;
-        private System.Windows.Forms.ListView listView2;
+        private System.Windows.Forms.ListView lVUser;
         private System.Windows.Forms.ColumnHeader IDUser;
         private System.Windows.Forms.ColumnHeader NameUser;
         private System.Windows.Forms.ColumnHeader LoginUser;
@@ -641,7 +641,7 @@
         private System.Windows.Forms.Button bDeleteUser;
         private System.Windows.Forms.Button bChangeUser;
         private System.Windows.Forms.Button bAddUser;
-        private System.Windows.Forms.ListView listView3;
+        private System.Windows.Forms.ListView lVTask;
         private System.Windows.Forms.ColumnHeader IDTask;
         private System.Windows.Forms.ColumnHeader NameTask;
         private System.Windows.Forms.ColumnHeader TaskCost;
@@ -651,7 +651,7 @@
         private System.Windows.Forms.Button bDeleteTask;
         private System.Windows.Forms.Button bChangeTask;
         private System.Windows.Forms.Button bCreateTask;
-        private System.Windows.Forms.ListView listView4;
+        private System.Windows.Forms.ListView lVBusyTask;
         private System.Windows.Forms.ColumnHeader IDBusyTask;
         private System.Windows.Forms.ColumnHeader NameBusyTask;
         private System.Windows.Forms.ColumnHeader BusyTaskCost;

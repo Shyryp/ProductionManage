@@ -6,7 +6,20 @@ using System.Threading.Tasks;
 
 namespace ProductionManagement
 {
-    class User
+    public class User
     {
+        public int IDUser { get; set; } = 0;
+        public string NameUser { get; set; } = "None";
+        public string LoginUser { get; set; } = "None";
+        public int IDRole { get; set; } = 0;
+        public int IDCompany { get; set; } = 0;
+        public string SecretQeustion { get; set; } = "None";
+        public string SecretAnswer { get; set; } = "None";
+        public User()
+        {
+
+        }
+
+        
     }
 }

@@ -14,16 +14,16 @@ namespace ProductionManagement
     public partial class StartWindow : Form
     {
         SqlConnection sqlConnection;
-        Process proc;
+        User creator;
         public StartWindow()
         {
             InitializeComponent();
         }
 
-        public StartWindow(Process p)
+        public StartWindow(User creator)
         {
             InitializeComponent();
-            this.proc = p;
+            this.creator = creator;
         }
 
         private async void bEnter_Click(object sender, EventArgs e)
@@ -64,8 +64,8 @@ namespace ProductionManagement
                     sqlDataReader.Close();
                 }
             }
+            MessageBox.Show("Логин не найден!");
 
-            
         }
 
         private void lErrorPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

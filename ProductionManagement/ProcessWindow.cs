@@ -14,16 +14,19 @@ namespace ProductionManagement
     public partial class ProcessWindow : Form
     {
         SqlConnection sqlConnection;
-        Process proc;
+        Company company;
+        Departament departament;
+        User creator;
+
         public ProcessWindow()
         {
             InitializeComponent();
         }
 
-        public ProcessWindow(Process p)
+        public ProcessWindow(User creator)
         {
             InitializeComponent();
-            this.proc = p;
+            this.creator = creator;
         }
 
         private async void ProcessWindow_Load(object sender, EventArgs e)
@@ -31,6 +34,36 @@ namespace ProductionManagement
             string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Shyrik\source\repos\ProductionManagement\ProductionManagement\DatabasePM.mdf;Integrated Security=True";
             sqlConnection = new SqlConnection(connectionString);
             await sqlConnection.OpenAsync();
+
+
+
+
+
+
+            SqlDataReader sqlDataReader = null;
+            SqlCommand sqlCommand = new SqlCommand("SELECT * FROM [Departament] WHERE Id_company = ", sqlConnection);
+
+            try
+            {
+                sqlDataReader = await sqlCommand.ExecuteReaderAsync();
+                string[] arr = { };
+                arr[0] = "product_1";
+                arr[1] = "100";
+                arr[2] = "10";
+                var itemDBUser = new ListViewItem(arr);
+                lVUser.Items.Add(itemDBUser);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), ex.Source.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (sqlDataReader != null)
+                {
+                    sqlDataReader.Close();
+                }
+            }
         }
 
         private void bCreateDepart_Click(object sender, EventArgs e)
