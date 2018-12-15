@@ -39,22 +39,39 @@ namespace ProductionManagement
                     && !string.IsNullOrEmpty(tbNewSecretAnswer.Text) && !string.IsNullOrWhiteSpace(tbNewSecretAnswer.Text)
                     && (tbNewPassword.Text == tbConfirmPassword.Text))
             {
+                //Считаем количество пользователей в базе
                 SqlCommand sqlCommandSelect = new SqlCommand("SELECT COUNT(*) FROM [User]", sqlConnection);
                 Int32 numUserCreator = (Int32)sqlCommandSelect.ExecuteScalar();
                 numUserCreator++;
+
+                //Создаём новую компанию
                 SqlCommand sqlCommandInsert =
                     new SqlCommand("INSERT INTO [Company] (NameCompany,Id_user_creator_company)VALUES(@NameCompany,@Id_user_creator_company)",
                     sqlConnection);
-
                 sqlCommandInsert.Parameters.AddWithValue("NameCompany", "None");
                 sqlCommandInsert.Parameters.AddWithValue("Id_user_creator_company", numUserCreator);
                 await sqlCommandInsert.ExecuteNonQueryAsync();
 
+                //находим номер компании
                 sqlCommandSelect = new SqlCommand("SELECT COUNT(*) FROM Company", sqlConnection);
                 Int32 count = (Int32)sqlCommandSelect.ExecuteScalar();
-
+                
+                //создаём отдел управления у компании
                 sqlCommandInsert =
-                    new SqlCommand("INSERT INTO [Role] (NameRole,Access_EUser,Access_ETask,Access_ESalary,Access_Creator,Id_company,Salary)VALUES(@NameRole,@Access_EUser,@Access_ETask,@Access_ESalary,@Access_Creator,@Id_company,@Salary)",
+                    new SqlCommand("INSERT INTO [Departament] (NameDepartament,Id_user,Id_company)VALUES(@NameDepartament,@Id_user,@Id_company)",
+                    sqlConnection);
+                sqlCommandInsert.Parameters.AddWithValue("NameDepartament", "Управление");
+                sqlCommandInsert.Parameters.AddWithValue("Id_user", numUserCreator);
+                sqlCommandInsert.Parameters.AddWithValue("Id_company", count);
+                await sqlCommandInsert.ExecuteNonQueryAsync();
+
+                //находим номер отдела в базе
+                sqlCommandSelect = new SqlCommand("SELECT COUNT(*) FROM [Departament]", sqlConnection);
+                Int32 countDepart = (Int32)sqlCommandSelect.ExecuteScalar();
+
+                //Создаём роль создателя в базе
+                sqlCommandInsert =
+                    new SqlCommand("INSERT INTO [Role] (NameRole,Access_EUser,Access_ETask,Access_ESalary,Access_Creator,Id_company,Salary,Id_departament)VALUES(@NameRole,@Access_EUser,@Access_ETask,@Access_ESalary,@Access_Creator,@Id_company,@Salary,@Id_departament)",
                     sqlConnection);
                 sqlCommandInsert.Parameters.AddWithValue("NameRole", "Создатель");
                 sqlCommandInsert.Parameters.AddWithValue("Access_EUser", true);
@@ -63,11 +80,14 @@ namespace ProductionManagement
                 sqlCommandInsert.Parameters.AddWithValue("Access_Creator", true);
                 sqlCommandInsert.Parameters.AddWithValue("Id_company", count);
                 sqlCommandInsert.Parameters.AddWithValue("Salary", 0);
+                sqlCommandInsert.Parameters.AddWithValue("Id_departament", countDepart);
                 await sqlCommandInsert.ExecuteNonQueryAsync();
-
+                
+                //находим номер роли в базе
                 sqlCommandSelect = new SqlCommand("SELECT COUNT(*) FROM Role", sqlConnection);
                 Int32 countRole = (Int32)sqlCommandSelect.ExecuteScalar();
 
+                //создаём (регистрируем) аккаунт создателя компании
                 sqlCommandInsert = 
                     new SqlCommand("INSERT INTO [User] (NameUser,Login,Password,id_role,id_company,SecretQeustion,SecretAnswer)VALUES(@NameUser,@Login,@Password,@id_role,@id_company,@SecretQeustion,@SecretAnswer)", 
                     sqlConnection);

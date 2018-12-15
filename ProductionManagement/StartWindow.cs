@@ -39,11 +39,16 @@ namespace ProductionManagement
 
                 while (await sqlDataReader.ReadAsync())
                 {
-                    if (Convert.ToString(sqlDataReader["NameUser"]) == tbLogin.Text)
+                    if (Convert.ToString(sqlDataReader["Login"]) == tbLogin.Text)
                     {
                         if (Convert.ToString(sqlDataReader["Password"]) == tbPassword.Text)
                         {
-
+                            proc.Login = tbLogin.Text;
+                            this.Close();
+                        }
+                        else {
+                            MessageBox.Show("Не верный пароль!");
+                            return;
                         }
                     }
                 }
@@ -60,8 +65,7 @@ namespace ProductionManagement
                 }
             }
 
-            proc.Login = tbLogin.Text;
-            this.Close();
+            
         }
 
         private void lErrorPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
