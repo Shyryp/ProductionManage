@@ -34,12 +34,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lErrorPassword = new System.Windows.Forms.LinkLabel();
+            this.bRegestration = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // bEnter
             // 
             this.bEnter.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.bEnter.Location = new System.Drawing.Point(77, 167);
+            this.bEnter.Location = new System.Drawing.Point(69, 147);
             this.bEnter.Name = "bEnter";
             this.bEnter.Size = new System.Drawing.Size(140, 23);
             this.bEnter.TabIndex = 0;
@@ -95,11 +97,34 @@
             this.lErrorPassword.Text = "Забыли пароль?";
             this.lErrorPassword.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lErrorPassword_LinkClicked);
             // 
+            // bRegestration
+            // 
+            this.bRegestration.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.bRegestration.Location = new System.Drawing.Point(69, 176);
+            this.bRegestration.Name = "bRegestration";
+            this.bRegestration.Size = new System.Drawing.Size(140, 23);
+            this.bRegestration.TabIndex = 6;
+            this.bRegestration.Text = "Зарегистрироваться";
+            this.bRegestration.UseVisualStyleBackColor = true;
+            this.bRegestration.Click += new System.EventHandler(this.bRegestration_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(216, 146);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(56, 53);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "ClearDB";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // StartWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 211);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.bRegestration);
             this.Controls.Add(this.lErrorPassword);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -125,6 +150,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.LinkLabel lErrorPassword;
+        private System.Windows.Forms.Button bRegestration;
+        private System.Windows.Forms.Button button1;
     }
 }
 

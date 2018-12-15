@@ -18,7 +18,6 @@ namespace ProductionManagement
         public StartWindow()
         {
             InitializeComponent();
-            
         }
 
         public StartWindow(Process p)
@@ -29,8 +28,37 @@ namespace ProductionManagement
 
         private async void bEnter_Click(object sender, EventArgs e)
         {
+
             //Проверка логина и пароля по базе
-            
+            SqlDataReader sqlDataReader = null;
+            SqlCommand sqlCommand = new SqlCommand("SELECT * FROM [User]", sqlConnection);
+
+            try
+            {
+                sqlDataReader = await sqlCommand.ExecuteReaderAsync();
+
+                while (await sqlDataReader.ReadAsync())
+                {
+                    if (Convert.ToString(sqlDataReader["NameUser"]) == tbLogin.Text)
+                    {
+                        if (Convert.ToString(sqlDataReader["Password"]) == tbPassword.Text)
+                        {
+
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), ex.Source.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (sqlDataReader != null)
+                {
+                    sqlDataReader.Close();
+                }
+            }
 
             proc.Login = tbLogin.Text;
             this.Close();
@@ -55,6 +83,28 @@ namespace ProductionManagement
             {
                 sqlConnection.Close();
             }
+        }
+
+        private void bRegestration_Click(object sender, EventArgs e)
+        {
+            RegistrationWindow regWindow = new RegistrationWindow(this);
+            this.Visible = false;
+            regWindow.Show();
+        }
+
+        private async void button1_Click(object sender, EventArgs e)
+        {
+            SqlCommand sqlCommandDelete = new SqlCommand("TRUNCATE TABLE [Company]", sqlConnection);
+            await sqlCommandDelete.ExecuteNonQueryAsync();
+            sqlCommandDelete = new SqlCommand("TRUNCATE TABLE [Departament]", sqlConnection);
+            await sqlCommandDelete.ExecuteNonQueryAsync();
+            sqlCommandDelete = new SqlCommand("TRUNCATE TABLE [Role]", sqlConnection);
+            await sqlCommandDelete.ExecuteNonQueryAsync();
+            sqlCommandDelete = new SqlCommand("TRUNCATE TABLE [Task]", sqlConnection);
+            await sqlCommandDelete.ExecuteNonQueryAsync();
+            sqlCommandDelete = new SqlCommand("TRUNCATE TABLE [User]", sqlConnection);
+            await sqlCommandDelete.ExecuteNonQueryAsync();
+
         }
     }
 }

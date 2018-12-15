@@ -62,11 +62,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Company.cs" />
-    <Compile Include="DatabasePMDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DatabasePMDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Department.cs" />
     <Compile Include="Process.cs" />
     <Compile Include="ProcessWindow.cs">
@@ -74,6 +69,12 @@
     </Compile>
     <Compile Include="ProcessWindow.Designer.cs">
       <DependentUpon>ProcessWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrationWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegistrationWindow.Designer.cs">
+      <DependentUpon>RegistrationWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="ResetPassword.cs">
       <SubType>Form</SubType>
@@ -105,23 +106,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="RegistrationWindow.resx">
+      <DependentUpon>RegistrationWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ResetPassword.resx">
       <DependentUpon>ResetPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StartWindow.resx">
       <DependentUpon>StartWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="DatabasePMDataSet.xsc">
-      <DependentUpon>DatabasePMDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="DatabasePMDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DatabasePMDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="DatabasePMDataSet.xss">
-      <DependentUpon>DatabasePMDataSet.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

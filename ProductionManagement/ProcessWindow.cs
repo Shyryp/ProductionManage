@@ -7,21 +7,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace ProductionManagement
 {
     public partial class ProcessWindow : Form
     {
+        SqlConnection sqlConnection;
+        Process proc;
         public ProcessWindow()
         {
             InitializeComponent();
         }
 
-        private void ProcessWindow_Load(object sender, EventArgs e)
+        public ProcessWindow(Process p)
         {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "databasePMDataSet.Departament". При необходимости она может быть перемещена или удалена.
-            this.departamentTableAdapter.Fill(this.databasePMDataSet.Departament);
+            InitializeComponent();
+            this.proc = p;
+        }
 
+        private async void ProcessWindow_Load(object sender, EventArgs e)
+        {
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Shyrik\source\repos\ProductionManagement\ProductionManagement\DatabasePM.mdf;Integrated Security=True";
+            sqlConnection = new SqlConnection(connectionString);
+            await sqlConnection.OpenAsync();
         }
 
         private void bCreateDepart_Click(object sender, EventArgs e)

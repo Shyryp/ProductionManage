@@ -76,9 +76,7 @@
             this.button10 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
-            this.databasePMDataSet = new ProductionManagement.DatabasePMDataSet();
             this.departamentBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.departamentTableAdapter = new ProductionManagement.DatabasePMDataSetTableAdapters.DepartamentTableAdapter();
             this.NameCreator = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.bToTakeTask = new System.Windows.Forms.Button();
             this.cVisibleBusyTask = new System.Windows.Forms.CheckBox();
@@ -96,7 +94,6 @@
             this.panel5.SuspendLayout();
             this.tabPageNowTask.SuspendLayout();
             this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.databasePMDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.departamentBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -538,20 +535,6 @@
             this.button12.Text = "Создать отдел";
             this.button12.UseVisualStyleBackColor = true;
             // 
-            // databasePMDataSet
-            // 
-            this.databasePMDataSet.DataSetName = "DatabasePMDataSet";
-            this.databasePMDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // departamentBindingSource
-            // 
-            this.departamentBindingSource.DataMember = "Departament";
-            this.departamentBindingSource.DataSource = this.databasePMDataSet;
-            // 
-            // departamentTableAdapter
-            // 
-            this.departamentTableAdapter.ClearBeforeFill = true;
-            // 
             // NameCreator
             // 
             this.NameCreator.Text = "Создатель";
@@ -623,7 +606,6 @@
             this.panel5.PerformLayout();
             this.tabPageNowTask.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.databasePMDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.departamentBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -641,9 +623,7 @@
         private System.Windows.Forms.TabPage tabPageNowTask;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button bCreateDepart;
-        private DatabasePMDataSet databasePMDataSet;
         private System.Windows.Forms.BindingSource departamentBindingSource;
-        private DatabasePMDataSetTableAdapters.DepartamentTableAdapter departamentTableAdapter;
         private System.Windows.Forms.Button bChangeRoleInDepart;
         private System.Windows.Forms.Button bDeleteDepart;
         private System.Windows.Forms.Button bChangeDepart;
