@@ -13,10 +13,11 @@ namespace ProductionManagement
         public string NameRole { get; set; } = "None";
         public bool Access_EUser { get; set; } = false;
         public bool Access_ETask { get; set; } = false;
-        public bool Access_ESalary { get; set; } = false;
+        public bool Access_ERole { get; set; } = false;
         public bool Access_Creator { get; set; } = false;
         public int IDCompany { get; set; } = 0;
         public int IDDepartament { get; set; } = 0;
+        public bool Access_ESalary { get; set; } = false;
 
     }
 }

@@ -39,16 +39,28 @@
             this.NameDepart = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.CreatorUser = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel4 = new System.Windows.Forms.Panel();
-            this.bChangeRoleInDepart = new System.Windows.Forms.Button();
             this.bDeleteDepart = new System.Windows.Forms.Button();
             this.bChangeDepart = new System.Windows.Forms.Button();
             this.bCreateDepart = new System.Windows.Forms.Button();
+            this.tabPageRole = new System.Windows.Forms.TabPage();
+            this.lVRole = new System.Windows.Forms.ListView();
+            this.cNumberRole = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cNameRole = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cAEU = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cAET = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cAES = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cCreator = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.bDeleteRole = new System.Windows.Forms.Button();
+            this.bChangeRole = new System.Windows.Forms.Button();
+            this.bCreateRole = new System.Windows.Forms.Button();
             this.tabPageUser = new System.Windows.Forms.TabPage();
             this.lVUser = new System.Windows.Forms.ListView();
             this.IDUser = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.NameUser = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.LoginUser = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SalaryUser = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.RoleUser = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel3 = new System.Windows.Forms.Panel();
             this.bChangeSalary = new System.Windows.Forms.Button();
             this.bDeleteUser = new System.Windows.Forms.Button();
@@ -81,12 +93,18 @@
             this.bBusyTaskFail = new System.Windows.Forms.Button();
             this.bBusyTaskFinish = new System.Windows.Forms.Button();
             this.departamentBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.RoleUser = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lNameDepartText = new System.Windows.Forms.Label();
+            this.lNameDepart = new System.Windows.Forms.Label();
+            this.lUser = new System.Windows.Forms.Label();
+            this.lNameUser = new System.Windows.Forms.Label();
+            this.cAER = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControlForm.SuspendLayout();
             this.tabPageDepart.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.tabPageRole.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.tabPageUser.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tabPageTask.SuspendLayout();
@@ -121,6 +139,10 @@
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Controls.Add(this.lNameUser);
+            this.panel2.Controls.Add(this.lUser);
+            this.panel2.Controls.Add(this.lNameDepart);
+            this.panel2.Controls.Add(this.lNameDepartText);
             this.panel2.Controls.Add(this.tabControlForm);
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
@@ -130,14 +152,15 @@
             // tabControlForm
             // 
             this.tabControlForm.Controls.Add(this.tabPageDepart);
+            this.tabControlForm.Controls.Add(this.tabPageRole);
             this.tabControlForm.Controls.Add(this.tabPageUser);
             this.tabControlForm.Controls.Add(this.tabPageTask);
             this.tabControlForm.Controls.Add(this.tabPageNowTask);
-            this.tabControlForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControlForm.Location = new System.Drawing.Point(0, 0);
+            this.tabControlForm.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tabControlForm.Location = new System.Drawing.Point(0, 28);
             this.tabControlForm.Name = "tabControlForm";
             this.tabControlForm.SelectedIndex = 0;
-            this.tabControlForm.Size = new System.Drawing.Size(584, 370);
+            this.tabControlForm.Size = new System.Drawing.Size(584, 342);
             this.tabControlForm.TabIndex = 0;
             // 
             // tabPageDepart
@@ -147,7 +170,7 @@
             this.tabPageDepart.Location = new System.Drawing.Point(4, 22);
             this.tabPageDepart.Name = "tabPageDepart";
             this.tabPageDepart.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageDepart.Size = new System.Drawing.Size(576, 344);
+            this.tabPageDepart.Size = new System.Drawing.Size(576, 316);
             this.tabPageDepart.TabIndex = 0;
             this.tabPageDepart.Text = "Список отделов";
             this.tabPageDepart.UseVisualStyleBackColor = true;
@@ -162,10 +185,11 @@
             this.lVDepartament.GridLines = true;
             this.lVDepartament.Location = new System.Drawing.Point(6, 6);
             this.lVDepartament.Name = "lVDepartament";
-            this.lVDepartament.Size = new System.Drawing.Size(363, 332);
+            this.lVDepartament.Size = new System.Drawing.Size(363, 307);
             this.lVDepartament.TabIndex = 2;
             this.lVDepartament.UseCompatibleStateImageBehavior = false;
             this.lVDepartament.View = System.Windows.Forms.View.Details;
+            this.lVDepartament.SelectedIndexChanged += new System.EventHandler(this.lVDepartament_SelectedIndexChanged);
             // 
             // IDDepart
             // 
@@ -185,24 +209,13 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.Gainsboro;
-            this.panel4.Controls.Add(this.bChangeRoleInDepart);
             this.panel4.Controls.Add(this.bDeleteDepart);
             this.panel4.Controls.Add(this.bChangeDepart);
             this.panel4.Controls.Add(this.bCreateDepart);
             this.panel4.Location = new System.Drawing.Point(375, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(198, 338);
+            this.panel4.Size = new System.Drawing.Size(198, 310);
             this.panel4.TabIndex = 1;
-            // 
-            // bChangeRoleInDepart
-            // 
-            this.bChangeRoleInDepart.Location = new System.Drawing.Point(7, 302);
-            this.bChangeRoleInDepart.Name = "bChangeRoleInDepart";
-            this.bChangeRoleInDepart.Size = new System.Drawing.Size(186, 33);
-            this.bChangeRoleInDepart.TabIndex = 3;
-            this.bChangeRoleInDepart.Text = "Изменить роли в отделе";
-            this.bChangeRoleInDepart.UseVisualStyleBackColor = true;
-            this.bChangeRoleInDepart.Click += new System.EventHandler(this.bChangeRoleInDepart_Click);
             // 
             // bDeleteDepart
             // 
@@ -234,6 +247,112 @@
             this.bCreateDepart.UseVisualStyleBackColor = true;
             this.bCreateDepart.Click += new System.EventHandler(this.bCreateDepart_Click);
             // 
+            // tabPageRole
+            // 
+            this.tabPageRole.Controls.Add(this.lVRole);
+            this.tabPageRole.Controls.Add(this.panel7);
+            this.tabPageRole.Location = new System.Drawing.Point(4, 22);
+            this.tabPageRole.Name = "tabPageRole";
+            this.tabPageRole.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageRole.Size = new System.Drawing.Size(576, 316);
+            this.tabPageRole.TabIndex = 4;
+            this.tabPageRole.Text = "Роли в отделе";
+            this.tabPageRole.UseVisualStyleBackColor = true;
+            // 
+            // lVRole
+            // 
+            this.lVRole.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.cNumberRole,
+            this.cNameRole,
+            this.cCreator,
+            this.cAER,
+            this.cAEU,
+            this.cAET,
+            this.cAES});
+            this.lVRole.FullRowSelect = true;
+            this.lVRole.GridLines = true;
+            this.lVRole.Location = new System.Drawing.Point(5, 6);
+            this.lVRole.Name = "lVRole";
+            this.lVRole.Size = new System.Drawing.Size(363, 307);
+            this.lVRole.TabIndex = 4;
+            this.lVRole.UseCompatibleStateImageBehavior = false;
+            this.lVRole.View = System.Windows.Forms.View.Details;
+            this.lVRole.SelectedIndexChanged += new System.EventHandler(this.lVRole_SelectedIndexChanged);
+            // 
+            // cNumberRole
+            // 
+            this.cNumberRole.Text = "№";
+            this.cNumberRole.Width = 24;
+            // 
+            // cNameRole
+            // 
+            this.cNameRole.Text = "Название";
+            this.cNameRole.Width = 66;
+            // 
+            // cAEU
+            // 
+            this.cAEU.DisplayIndex = 2;
+            this.cAEU.Text = "Р. раб.";
+            this.cAEU.Width = 48;
+            // 
+            // cAET
+            // 
+            this.cAET.DisplayIndex = 3;
+            this.cAET.Text = "Р. задачи";
+            this.cAET.Width = 61;
+            // 
+            // cAES
+            // 
+            this.cAES.DisplayIndex = 4;
+            this.cAES.Text = "Р. з.п.";
+            this.cAES.Width = 46;
+            // 
+            // cCreator
+            // 
+            this.cCreator.Text = "Р. отделы";
+            this.cCreator.Width = 62;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.Gainsboro;
+            this.panel7.Controls.Add(this.bDeleteRole);
+            this.panel7.Controls.Add(this.bChangeRole);
+            this.panel7.Controls.Add(this.bCreateRole);
+            this.panel7.Location = new System.Drawing.Point(374, 3);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(198, 310);
+            this.panel7.TabIndex = 3;
+            // 
+            // bDeleteRole
+            // 
+            this.bDeleteRole.Location = new System.Drawing.Point(7, 90);
+            this.bDeleteRole.Name = "bDeleteRole";
+            this.bDeleteRole.Size = new System.Drawing.Size(186, 33);
+            this.bDeleteRole.TabIndex = 2;
+            this.bDeleteRole.Text = "Удалить роль";
+            this.bDeleteRole.UseVisualStyleBackColor = true;
+            this.bDeleteRole.Click += new System.EventHandler(this.bDeleteRole_Click);
+            // 
+            // bChangeRole
+            // 
+            this.bChangeRole.Location = new System.Drawing.Point(7, 51);
+            this.bChangeRole.Name = "bChangeRole";
+            this.bChangeRole.Size = new System.Drawing.Size(186, 33);
+            this.bChangeRole.TabIndex = 1;
+            this.bChangeRole.Text = "Изменить роль";
+            this.bChangeRole.UseVisualStyleBackColor = true;
+            this.bChangeRole.Click += new System.EventHandler(this.bChangeRole_Click);
+            // 
+            // bCreateRole
+            // 
+            this.bCreateRole.Location = new System.Drawing.Point(7, 12);
+            this.bCreateRole.Name = "bCreateRole";
+            this.bCreateRole.Size = new System.Drawing.Size(186, 33);
+            this.bCreateRole.TabIndex = 0;
+            this.bCreateRole.Text = "Создать роль";
+            this.bCreateRole.UseVisualStyleBackColor = true;
+            this.bCreateRole.Click += new System.EventHandler(this.bCreateRole_Click);
+            // 
             // tabPageUser
             // 
             this.tabPageUser.Controls.Add(this.lVUser);
@@ -241,9 +360,9 @@
             this.tabPageUser.Location = new System.Drawing.Point(4, 22);
             this.tabPageUser.Name = "tabPageUser";
             this.tabPageUser.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageUser.Size = new System.Drawing.Size(576, 344);
+            this.tabPageUser.Size = new System.Drawing.Size(576, 316);
             this.tabPageUser.TabIndex = 1;
-            this.tabPageUser.Text = "Список сотрудников";
+            this.tabPageUser.Text = "Список сотрудников в отделе";
             this.tabPageUser.UseVisualStyleBackColor = true;
             // 
             // lVUser
@@ -258,7 +377,7 @@
             this.lVUser.GridLines = true;
             this.lVUser.Location = new System.Drawing.Point(5, 6);
             this.lVUser.Name = "lVUser";
-            this.lVUser.Size = new System.Drawing.Size(363, 332);
+            this.lVUser.Size = new System.Drawing.Size(363, 308);
             this.lVUser.TabIndex = 4;
             this.lVUser.UseCompatibleStateImageBehavior = false;
             this.lVUser.View = System.Windows.Forms.View.Details;
@@ -283,6 +402,11 @@
             this.SalaryUser.Text = "Зарплата";
             this.SalaryUser.Width = 63;
             // 
+            // RoleUser
+            // 
+            this.RoleUser.Text = "Роль";
+            this.RoleUser.Width = 87;
+            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Gainsboro;
@@ -292,12 +416,12 @@
             this.panel3.Controls.Add(this.bAddUser);
             this.panel3.Location = new System.Drawing.Point(374, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(198, 338);
+            this.panel3.Size = new System.Drawing.Size(198, 311);
             this.panel3.TabIndex = 3;
             // 
             // bChangeSalary
             // 
-            this.bChangeSalary.Location = new System.Drawing.Point(7, 302);
+            this.bChangeSalary.Location = new System.Drawing.Point(7, 264);
             this.bChangeSalary.Name = "bChangeSalary";
             this.bChangeSalary.Size = new System.Drawing.Size(186, 33);
             this.bChangeSalary.TabIndex = 3;
@@ -341,7 +465,7 @@
             this.tabPageTask.Controls.Add(this.panel5);
             this.tabPageTask.Location = new System.Drawing.Point(4, 22);
             this.tabPageTask.Name = "tabPageTask";
-            this.tabPageTask.Size = new System.Drawing.Size(576, 344);
+            this.tabPageTask.Size = new System.Drawing.Size(576, 316);
             this.tabPageTask.TabIndex = 2;
             this.tabPageTask.Text = "Список задач";
             this.tabPageTask.UseVisualStyleBackColor = true;
@@ -358,7 +482,7 @@
             this.lVTask.GridLines = true;
             this.lVTask.Location = new System.Drawing.Point(5, 6);
             this.lVTask.Name = "lVTask";
-            this.lVTask.Size = new System.Drawing.Size(363, 332);
+            this.lVTask.Size = new System.Drawing.Size(363, 307);
             this.lVTask.TabIndex = 4;
             this.lVTask.UseCompatibleStateImageBehavior = false;
             this.lVTask.View = System.Windows.Forms.View.Details;
@@ -400,13 +524,13 @@
             this.panel5.Controls.Add(this.bCreateTask);
             this.panel5.Location = new System.Drawing.Point(374, 3);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(198, 338);
+            this.panel5.Size = new System.Drawing.Size(198, 310);
             this.panel5.TabIndex = 3;
             // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(26, 194);
+            this.checkBox1.Location = new System.Drawing.Point(26, 169);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(148, 17);
             this.checkBox1.TabIndex = 6;
@@ -417,7 +541,7 @@
             // cVisibleBusyTask
             // 
             this.cVisibleBusyTask.AutoSize = true;
-            this.cVisibleBusyTask.Location = new System.Drawing.Point(26, 228);
+            this.cVisibleBusyTask.Location = new System.Drawing.Point(26, 192);
             this.cVisibleBusyTask.Name = "cVisibleBusyTask";
             this.cVisibleBusyTask.Size = new System.Drawing.Size(161, 17);
             this.cVisibleBusyTask.TabIndex = 5;
@@ -427,7 +551,7 @@
             // 
             // bToTakeTask
             // 
-            this.bToTakeTask.Location = new System.Drawing.Point(7, 302);
+            this.bToTakeTask.Location = new System.Drawing.Point(7, 266);
             this.bToTakeTask.Name = "bToTakeTask";
             this.bToTakeTask.Size = new System.Drawing.Size(186, 33);
             this.bToTakeTask.TabIndex = 4;
@@ -437,7 +561,7 @@
             // 
             // bMoreInfo
             // 
-            this.bMoreInfo.Location = new System.Drawing.Point(7, 263);
+            this.bMoreInfo.Location = new System.Drawing.Point(7, 227);
             this.bMoreInfo.Name = "bMoreInfo";
             this.bMoreInfo.Size = new System.Drawing.Size(186, 33);
             this.bMoreInfo.TabIndex = 3;
@@ -481,7 +605,7 @@
             this.tabPageNowTask.Controls.Add(this.panel6);
             this.tabPageNowTask.Location = new System.Drawing.Point(4, 22);
             this.tabPageNowTask.Name = "tabPageNowTask";
-            this.tabPageNowTask.Size = new System.Drawing.Size(576, 344);
+            this.tabPageNowTask.Size = new System.Drawing.Size(576, 316);
             this.tabPageNowTask.TabIndex = 3;
             this.tabPageNowTask.Text = "Выполняемые задачи";
             this.tabPageNowTask.UseVisualStyleBackColor = true;
@@ -498,7 +622,7 @@
             this.lVBusyTask.GridLines = true;
             this.lVBusyTask.Location = new System.Drawing.Point(5, 6);
             this.lVBusyTask.Name = "lVBusyTask";
-            this.lVBusyTask.Size = new System.Drawing.Size(363, 332);
+            this.lVBusyTask.Size = new System.Drawing.Size(363, 307);
             this.lVBusyTask.TabIndex = 4;
             this.lVBusyTask.UseCompatibleStateImageBehavior = false;
             this.lVBusyTask.View = System.Windows.Forms.View.Details;
@@ -536,7 +660,7 @@
             this.panel6.Controls.Add(this.bBusyTaskFinish);
             this.panel6.Location = new System.Drawing.Point(374, 3);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(198, 338);
+            this.panel6.Size = new System.Drawing.Size(198, 310);
             this.panel6.TabIndex = 3;
             // 
             // bMoreInfoBusyTask
@@ -569,10 +693,46 @@
             this.bBusyTaskFinish.UseVisualStyleBackColor = true;
             this.bBusyTaskFinish.Click += new System.EventHandler(this.bBusyTaskFinish_Click);
             // 
-            // RoleUser
+            // lNameDepartText
             // 
-            this.RoleUser.Text = "Роль";
-            this.RoleUser.Width = 87;
+            this.lNameDepartText.AutoSize = true;
+            this.lNameDepartText.Location = new System.Drawing.Point(9, 9);
+            this.lNameDepartText.Name = "lNameDepartText";
+            this.lNameDepartText.Size = new System.Drawing.Size(41, 13);
+            this.lNameDepartText.TabIndex = 1;
+            this.lNameDepartText.Text = "Отдел:";
+            // 
+            // lNameDepart
+            // 
+            this.lNameDepart.AutoSize = true;
+            this.lNameDepart.Location = new System.Drawing.Point(57, 9);
+            this.lNameDepart.Name = "lNameDepart";
+            this.lNameDepart.Size = new System.Drawing.Size(95, 13);
+            this.lNameDepart.TabIndex = 2;
+            this.lNameDepart.Text = "Название отдела";
+            // 
+            // lUser
+            // 
+            this.lUser.AutoSize = true;
+            this.lUser.Location = new System.Drawing.Point(289, 9);
+            this.lUser.Name = "lUser";
+            this.lUser.Size = new System.Drawing.Size(83, 13);
+            this.lUser.TabIndex = 3;
+            this.lUser.Text = "Пользователь:";
+            // 
+            // lNameUser
+            // 
+            this.lNameUser.AutoSize = true;
+            this.lNameUser.Location = new System.Drawing.Point(382, 9);
+            this.lNameUser.Name = "lNameUser";
+            this.lNameUser.Size = new System.Drawing.Size(103, 13);
+            this.lNameUser.TabIndex = 4;
+            this.lNameUser.Text = "Имя пользователя";
+            // 
+            // cAER
+            // 
+            this.cAER.Text = "Р. роли";
+            this.cAER.Width = 51;
             // 
             // ProcessWindow
             // 
@@ -588,9 +748,12 @@
             this.Load += new System.EventHandler(this.ProcessWindow_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.tabControlForm.ResumeLayout(false);
             this.tabPageDepart.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
+            this.tabPageRole.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
             this.tabPageUser.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.tabPageTask.ResumeLayout(false);
@@ -616,7 +779,6 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button bCreateDepart;
         private System.Windows.Forms.BindingSource departamentBindingSource;
-        private System.Windows.Forms.Button bChangeRoleInDepart;
         private System.Windows.Forms.Button bDeleteDepart;
         private System.Windows.Forms.Button bChangeDepart;
         private System.Windows.Forms.ListView lVDepartament;
@@ -658,5 +820,22 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.ColumnHeader BusyTaskCreator;
         private System.Windows.Forms.ColumnHeader RoleUser;
+        private System.Windows.Forms.TabPage tabPageRole;
+        private System.Windows.Forms.ListView lVRole;
+        private System.Windows.Forms.ColumnHeader cNumberRole;
+        private System.Windows.Forms.ColumnHeader cNameRole;
+        private System.Windows.Forms.ColumnHeader cAEU;
+        private System.Windows.Forms.ColumnHeader cAET;
+        private System.Windows.Forms.ColumnHeader cAES;
+        private System.Windows.Forms.ColumnHeader cCreator;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Button bDeleteRole;
+        private System.Windows.Forms.Button bChangeRole;
+        private System.Windows.Forms.Button bCreateRole;
+        private System.Windows.Forms.Label lNameUser;
+        private System.Windows.Forms.Label lUser;
+        private System.Windows.Forms.Label lNameDepart;
+        private System.Windows.Forms.Label lNameDepartText;
+        private System.Windows.Forms.ColumnHeader cAER;
     }
 }

@@ -15,17 +15,19 @@ namespace ProductionManagement
     {
         SqlConnection sqlConnection;
         User worker;
+        Role role;
         Company company;
         public StartWindow()
         {
             InitializeComponent();
         }
 
-        public StartWindow(User worker, Company company)
+        public StartWindow(User worker, Company company, Role role)
         {
             InitializeComponent();
             this.worker = worker;
             this.company = company;
+            this.role = role;
         }
 
         private async void bEnter_Click(object sender, EventArgs e)
@@ -58,15 +60,32 @@ namespace ProductionManagement
                             worker.Salary = Convert.ToInt32(sqlDataReader["Salary"]);
                             company.IDCompany = Convert.ToInt32(sqlDataReader["id_company"]);
                             sqlDataReader.Close();
-                            
 
-                            SqlCommand sqlCommand2 = new SqlCommand("SELECT * FROM [Company] WHERE [Id]=@id", sqlConnection);
-                            sqlCommand2.Parameters.AddWithValue("Id", company.IDCompany);
-                            SqlDataReader sqlDataReader2 = null;
-                            sqlDataReader2 = await sqlCommand2.ExecuteReaderAsync();
-                            await sqlDataReader2.ReadAsync();
-                            company.NameCompany = Convert.ToString(sqlDataReader2["NameCompany"]);
-                            sqlDataReader2.Close();
+                            sqlCommand = new SqlCommand("SELECT * FROM [Role] WHERE [Id]=@Id", sqlConnection);
+                            sqlCommand.Parameters.AddWithValue("Id", worker.IDRole);
+                            sqlDataReader = await sqlCommand.ExecuteReaderAsync();
+                            await sqlDataReader.ReadAsync();
+                            role.IDRole = Convert.ToInt32(sqlDataReader["Id"]);
+                            role.NameRole = Convert.ToString(sqlDataReader["NameRole"]);
+                            role.Access_EUser = Convert.ToBoolean(sqlDataReader["Access_EUser"]);
+                            role.Access_ETask = Convert.ToBoolean(sqlDataReader["Access_ETask"]);
+                            role.Access_ERole = Convert.ToBoolean(sqlDataReader["Access_ERole"]);
+                            role.Access_Creator = Convert.ToBoolean(sqlDataReader["Access_Creator"]);
+                            role.IDCompany = Convert.ToInt32(sqlDataReader["Id_company"]);
+                            role.IDDepartament = Convert.ToInt32(sqlDataReader["Id_departament"]);
+                            role.Access_ESalary = Convert.ToBoolean(sqlDataReader["Access_ESalary"]);
+                            sqlDataReader.Close();
+
+                            sqlCommand = null;
+                            sqlCommand = new SqlCommand("SELECT * FROM [Company] WHERE [Id]=@id", sqlConnection);
+                            sqlCommand.Parameters.AddWithValue("Id", company.IDCompany);
+                            sqlDataReader = null;
+                            sqlDataReader = await sqlCommand.ExecuteReaderAsync();
+                            await sqlDataReader.ReadAsync();
+                            company.NameCompany = Convert.ToString(sqlDataReader["NameCompany"]);
+                            company.IDUserCreatorCompany = Convert.ToInt32(sqlDataReader["Id_user_creator_company"]);
+                            sqlDataReader.Close();
+
                             this.Close();
                         }
                         else

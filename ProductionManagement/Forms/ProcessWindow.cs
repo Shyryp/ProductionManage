@@ -23,11 +23,41 @@ namespace ProductionManagement
             InitializeComponent();
         }
 
-        public ProcessWindow(User creator, Company company)
+        public ProcessWindow(User worker, Company company, Role role)
         {
             InitializeComponent();
-            workers.Add(creator);
+            workers.Add(worker);
             this.company = company;
+            roles.Add(role);
+            if (!roles[0].Access_Creator)
+            {
+                tabControlForm.TabPages.RemoveByKey("tabPageDepart");
+            }
+            if (!roles[0].Access_ESalary)
+            {
+                //скрываем кнопки изменения сотрудников
+                bAddUser.Visible = false;
+                bChangeUser.Visible = false;
+                bDeleteUser.Visible = false;
+            }
+            if (!roles[0].Access_ERole)
+            {
+                //скрываем кнопку изменения ролей
+                tabControlForm.TabPages.RemoveByKey("tabPageRole");
+            }
+            if (!roles[0].Access_ETask)
+            {
+                //убрать кнопки с панели задач
+                bCreateTask.Visible = false;
+                bChangeTask.Visible = false;
+                bDeleteTask.Visible = false;
+            }
+            if (!roles[0].Access_EUser)
+            {
+                //удаляем страницу пользователей
+                tabControlForm.TabPages.RemoveByKey("tabPageUser");
+            }
+            
         }
 
         private async void ProcessWindow_Load(object sender, EventArgs e)
@@ -195,6 +225,46 @@ namespace ProductionManagement
             this.Close();
         }
 
-        
+        private void bCreateRole_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bChangeRole_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bDeleteRole_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lVDepartament_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            String textItem = lVDepartament.FocusedItem.SubItems[0].Text;
+            Departament dep =  departament[Convert.ToInt32(textItem)-1];
+            SqlDataReader sqlDataReader = null;
+
+            //Проверяем, что доступно текущему пользователю
+            //Если есть доступ к ролям
+            //Загружаем Роли в лист // и отображаем на экран
+
+            //Если есть доступ к редактированию поотображаем на экран
+
+        }
+
+        private void lVRole_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            String textItem = lVRole.FocusedItem.SubItems[0].Text;
+            Role role = roles[Convert.ToInt32(textItem) - 1];
+            SqlDataReader sqlDataReader = null;
+
+            //Проверяем, что доступно текущему пользователю
+            //Если есть доступ к пользователям
+            //Загружаем пользователей в лист // и отображаем на экран
+
+            //Загружаем задачи по текущей роли в лист задач // и отображаем на экране
+        }
     }
 }
