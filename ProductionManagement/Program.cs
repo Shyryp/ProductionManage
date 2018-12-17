@@ -14,21 +14,24 @@ namespace ProductionManagement
         [STAThread]
         static void Main()
         {
-            User creator = new User();
+            User worker = new User();
+            Company company = new Company();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new StartWindow(creator));
-            if (creator.LoginUser != "None" && creator.LoginUser != " "
-                && creator.LoginUser != "")
+            Application.Run(new StartWindow(worker, company));
+            if (worker.LoginUser != "None" && worker.LoginUser != " "
+                && worker.LoginUser != "")
             {
-                //MessageBox.Show("Ошибки нет");
-                Application.Run(new ProcessWindow(creator));
-            }
-            else {
-                //MessageBox.Show("Ошибка!");
-                return;
-            }
+                if (company.NameCompany == "None")
+                {
+                    Application.Run(new StartNewCompany(company));
+                }
 
+                if (!(company.NameCompany == "None"))
+                {
+                    Application.Run(new ProcessWindow(worker, company));
+                }
+            }
         }
     }
 }

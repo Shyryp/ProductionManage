@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace ProductionManagement
 {
-    
-    class Role
+
+    public class Role
     {
         public int IDRole { get; set; } = 0;
         public string NameRole { get; set; } = "None";

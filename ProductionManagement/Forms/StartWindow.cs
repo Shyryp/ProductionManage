@@ -14,16 +14,18 @@ namespace ProductionManagement
     public partial class StartWindow : Form
     {
         SqlConnection sqlConnection;
-        User creator;
+        User worker;
+        Company company;
         public StartWindow()
         {
             InitializeComponent();
         }
 
-        public StartWindow(User creator)
+        public StartWindow(User worker, Company company)
         {
             InitializeComponent();
-            this.creator = creator;
+            this.worker = worker;
+            this.company = company;
         }
 
         private async void bEnter_Click(object sender, EventArgs e)
@@ -31,47 +33,57 @@ namespace ProductionManagement
 
             //Проверка логина и пароля по базе
             SqlDataReader sqlDataReader = null;
-            SqlCommand sqlCommand = new SqlCommand("SELECT * FROM [User]", sqlConnection);
+            SqlCommand sqlCommand = new SqlCommand("SELECT * FROM [User] WHERE [Login]=@Login", sqlConnection);
 
-            try
+            sqlCommand.Parameters.AddWithValue("Login", tbLogin.Text);
+
+            sqlDataReader = await sqlCommand.ExecuteReaderAsync();
+            await sqlDataReader.ReadAsync();
+            if (!sqlDataReader.IsClosed && sqlDataReader != null)
             {
-                sqlDataReader = await sqlCommand.ExecuteReaderAsync();
-
-                while (await sqlDataReader.ReadAsync())
+                try
                 {
                     if (Convert.ToString(sqlDataReader["Login"]) == tbLogin.Text)
                     {
                         if (Convert.ToString(sqlDataReader["Password"]) == tbPassword.Text)
                         {
-                            creator.IDUser = Convert.ToInt32(sqlDataReader["Id"]);
-                            creator.NameUser = Convert.ToString(sqlDataReader["NameUser"]);
-                            creator.LoginUser = Convert.ToString(sqlDataReader["Login"]);
-                            creator.Password = Convert.ToString(sqlDataReader["Password"]);
-                            creator.IDRole = Convert.ToInt32(sqlDataReader["id_role"]);
-                            creator.IDCompany = Convert.ToInt32(sqlDataReader["id_company"]);
-                            creator.SecretQeustion = Convert.ToString(sqlDataReader["SecretQeustion"]);
-                            creator.SecretAnswer = Convert.ToString(sqlDataReader["SecretAnswer"]);
-                            creator.Salary = Convert.ToInt32(sqlDataReader["Salary"]);
+                            worker.IDUser = Convert.ToInt32(sqlDataReader["Id"]);
+                            worker.NameUser = Convert.ToString(sqlDataReader["NameUser"]);
+                            worker.LoginUser = Convert.ToString(sqlDataReader["Login"]);
+                            worker.Password = Convert.ToString(sqlDataReader["Password"]);
+                            worker.IDRole = Convert.ToInt32(sqlDataReader["id_role"]);
+                            worker.IDCompany = Convert.ToInt32(sqlDataReader["id_company"]);
+                            worker.SecretQeustion = Convert.ToString(sqlDataReader["SecretQeustion"]);
+                            worker.SecretAnswer = Convert.ToString(sqlDataReader["SecretAnswer"]);
+                            worker.Salary = Convert.ToInt32(sqlDataReader["Salary"]);
+                            company.IDCompany = Convert.ToInt32(sqlDataReader["id_company"]);
+                            sqlDataReader.Close();
+                            
+
+                            SqlCommand sqlCommand2 = new SqlCommand("SELECT * FROM [Company] WHERE [Id]=@id", sqlConnection);
+                            sqlCommand2.Parameters.AddWithValue("Id", company.IDCompany);
+                            SqlDataReader sqlDataReader2 = null;
+                            sqlDataReader2 = await sqlCommand2.ExecuteReaderAsync();
+                            await sqlDataReader2.ReadAsync();
+                            company.NameCompany = Convert.ToString(sqlDataReader2["NameCompany"]);
+                            sqlDataReader2.Close();
                             this.Close();
                         }
-                        else {
-                            MessageBox.Show("Не верный пароль!");
+                        else
+                        {
+                            MessageBox.Show("Неверный пароль!");
                             return;
                         }
                     }
                 }
+                catch (Exception ex)
+                {                }
             }
-            catch (Exception ex)
+            if (sqlDataReader != null)
             {
-                MessageBox.Show(ex.Message.ToString(), ex.Source.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                sqlDataReader.Close();
             }
-            finally
-            {
-                if (sqlDataReader != null)
-                {
-                    sqlDataReader.Close();
-                }
-            }
+       
             MessageBox.Show("Логин не найден!");
 
         }
@@ -86,7 +98,6 @@ namespace ProductionManagement
         {
             string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Shyrik\source\repos\ProductionManagement\ProductionManagement\DatabasePM.mdf;Integrated Security=True";
             sqlConnection = new SqlConnection(connectionString);
-
             await sqlConnection.OpenAsync();
         }
 

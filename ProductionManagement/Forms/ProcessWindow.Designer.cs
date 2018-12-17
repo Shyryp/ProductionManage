@@ -37,7 +37,6 @@
             this.lVDepartament = new System.Windows.Forms.ListView();
             this.IDDepart = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.NameDepart = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.NumberUser = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.CreatorUser = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel4 = new System.Windows.Forms.Panel();
             this.bChangeRoleInDepart = new System.Windows.Forms.Button();
@@ -78,11 +77,11 @@
             this.BusyTaskDeadline = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.BusyTaskCreator = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel6 = new System.Windows.Forms.Panel();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
+            this.bMoreInfoBusyTask = new System.Windows.Forms.Button();
+            this.bBusyTaskFail = new System.Windows.Forms.Button();
+            this.bBusyTaskFinish = new System.Windows.Forms.Button();
             this.departamentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.RoleUser = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControlForm.SuspendLayout();
@@ -158,7 +157,6 @@
             this.lVDepartament.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.IDDepart,
             this.NameDepart,
-            this.NumberUser,
             this.CreatorUser});
             this.lVDepartament.FullRowSelect = true;
             this.lVDepartament.GridLines = true;
@@ -177,17 +175,12 @@
             // NameDepart
             // 
             this.NameDepart.Text = "Название";
-            this.NameDepart.Width = 93;
-            // 
-            // NumberUser
-            // 
-            this.NumberUser.Text = "Кол. сотр-ов";
-            this.NumberUser.Width = 75;
+            this.NameDepart.Width = 135;
             // 
             // CreatorUser
             // 
             this.CreatorUser.Text = "Создатель отдела";
-            this.CreatorUser.Width = 137;
+            this.CreatorUser.Width = 196;
             // 
             // panel4
             // 
@@ -259,7 +252,8 @@
             this.IDUser,
             this.NameUser,
             this.LoginUser,
-            this.SalaryUser});
+            this.SalaryUser,
+            this.RoleUser});
             this.lVUser.FullRowSelect = true;
             this.lVUser.GridLines = true;
             this.lVUser.Location = new System.Drawing.Point(5, 6);
@@ -277,17 +271,17 @@
             // NameUser
             // 
             this.NameUser.Text = "Имя";
-            this.NameUser.Width = 153;
+            this.NameUser.Width = 112;
             // 
             // LoginUser
             // 
             this.LoginUser.Text = "Логин";
-            this.LoginUser.Width = 96;
+            this.LoginUser.Width = 58;
             // 
             // SalaryUser
             // 
             this.SalaryUser.Text = "Зарплата";
-            this.SalaryUser.Width = 81;
+            this.SalaryUser.Width = 63;
             // 
             // panel3
             // 
@@ -537,50 +531,48 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.Gainsboro;
-            this.panel6.Controls.Add(this.button9);
-            this.panel6.Controls.Add(this.button10);
-            this.panel6.Controls.Add(this.button11);
-            this.panel6.Controls.Add(this.button12);
+            this.panel6.Controls.Add(this.bMoreInfoBusyTask);
+            this.panel6.Controls.Add(this.bBusyTaskFail);
+            this.panel6.Controls.Add(this.bBusyTaskFinish);
             this.panel6.Location = new System.Drawing.Point(374, 3);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(198, 338);
             this.panel6.TabIndex = 3;
             // 
-            // button9
+            // bMoreInfoBusyTask
             // 
-            this.button9.Location = new System.Drawing.Point(7, 129);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(186, 33);
-            this.button9.TabIndex = 3;
-            this.button9.Text = "Изменить роли в отделе";
-            this.button9.UseVisualStyleBackColor = true;
+            this.bMoreInfoBusyTask.Location = new System.Drawing.Point(7, 90);
+            this.bMoreInfoBusyTask.Name = "bMoreInfoBusyTask";
+            this.bMoreInfoBusyTask.Size = new System.Drawing.Size(186, 33);
+            this.bMoreInfoBusyTask.TabIndex = 2;
+            this.bMoreInfoBusyTask.Text = "Подробнее о задаче";
+            this.bMoreInfoBusyTask.UseVisualStyleBackColor = true;
+            this.bMoreInfoBusyTask.Click += new System.EventHandler(this.bMoreInfoBusyTask_Click);
             // 
-            // button10
+            // bBusyTaskFail
             // 
-            this.button10.Location = new System.Drawing.Point(7, 90);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(186, 33);
-            this.button10.TabIndex = 2;
-            this.button10.Text = "Удалить отдел";
-            this.button10.UseVisualStyleBackColor = true;
+            this.bBusyTaskFail.Location = new System.Drawing.Point(7, 51);
+            this.bBusyTaskFail.Name = "bBusyTaskFail";
+            this.bBusyTaskFail.Size = new System.Drawing.Size(186, 33);
+            this.bBusyTaskFail.TabIndex = 1;
+            this.bBusyTaskFail.Text = "Провалить задачу";
+            this.bBusyTaskFail.UseVisualStyleBackColor = true;
+            this.bBusyTaskFail.Click += new System.EventHandler(this.bBusyTaskFail_Click);
             // 
-            // button11
+            // bBusyTaskFinish
             // 
-            this.button11.Location = new System.Drawing.Point(7, 51);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(186, 33);
-            this.button11.TabIndex = 1;
-            this.button11.Text = "Изменить отдел";
-            this.button11.UseVisualStyleBackColor = true;
+            this.bBusyTaskFinish.Location = new System.Drawing.Point(7, 12);
+            this.bBusyTaskFinish.Name = "bBusyTaskFinish";
+            this.bBusyTaskFinish.Size = new System.Drawing.Size(186, 33);
+            this.bBusyTaskFinish.TabIndex = 0;
+            this.bBusyTaskFinish.Text = "Успешно завершить задачу";
+            this.bBusyTaskFinish.UseVisualStyleBackColor = true;
+            this.bBusyTaskFinish.Click += new System.EventHandler(this.bBusyTaskFinish_Click);
             // 
-            // button12
+            // RoleUser
             // 
-            this.button12.Location = new System.Drawing.Point(7, 12);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(186, 33);
-            this.button12.TabIndex = 0;
-            this.button12.Text = "Создать отдел";
-            this.button12.UseVisualStyleBackColor = true;
+            this.RoleUser.Text = "Роль";
+            this.RoleUser.Width = 87;
             // 
             // ProcessWindow
             // 
@@ -630,7 +622,6 @@
         private System.Windows.Forms.ListView lVDepartament;
         private System.Windows.Forms.ColumnHeader IDDepart;
         private System.Windows.Forms.ColumnHeader NameDepart;
-        private System.Windows.Forms.ColumnHeader NumberUser;
         private System.Windows.Forms.ColumnHeader CreatorUser;
         private System.Windows.Forms.ListView lVUser;
         private System.Windows.Forms.ColumnHeader IDUser;
@@ -657,15 +648,15 @@
         private System.Windows.Forms.ColumnHeader BusyTaskCost;
         private System.Windows.Forms.ColumnHeader BusyTaskDeadline;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button bMoreInfoBusyTask;
+        private System.Windows.Forms.Button bBusyTaskFail;
+        private System.Windows.Forms.Button bBusyTaskFinish;
         private System.Windows.Forms.ColumnHeader NameCreator;
         private System.Windows.Forms.CheckBox cVisibleBusyTask;
         private System.Windows.Forms.Button bToTakeTask;
         private System.Windows.Forms.ColumnHeader SalaryUser;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.ColumnHeader BusyTaskCreator;
+        private System.Windows.Forms.ColumnHeader RoleUser;
     }
 }

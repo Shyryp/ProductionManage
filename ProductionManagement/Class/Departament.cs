@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace ProductionManagement
 {
-    class Company
+    public class Departament
     {
+        public int IDDepartament { get; set; } = 0;
+        public string NameDepartament { get; set; } = "None";
+        public int IDUser { get; set; } = 0;
         public int IDCompany { get; set; } = 0;
-        public string NameCompany { get; set; } = "None";
-        public int IDUserCreatorCompany { get; set; } = 0;
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProductionManagement
 {
-    class Task
+    public class Task
     {
         public int IDTask { get; set; } = 0;
         public string NameTask { get; set; } = "None";
