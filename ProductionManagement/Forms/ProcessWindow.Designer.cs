@@ -29,9 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProcessWindow));
             this.panel1 = new System.Windows.Forms.Panel();
             this.bExit = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lNameUser = new System.Windows.Forms.Label();
+            this.lUser = new System.Windows.Forms.Label();
+            this.lNameDepart = new System.Windows.Forms.Label();
+            this.lNameDepartText = new System.Windows.Forms.Label();
             this.tabControlForm = new System.Windows.Forms.TabControl();
             this.tabPageDepart = new System.Windows.Forms.TabPage();
             this.lVDepartament = new System.Windows.Forms.ListView();
@@ -46,10 +51,11 @@
             this.lVRole = new System.Windows.Forms.ListView();
             this.cNumberRole = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cNameRole = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cCreator = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cAER = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cAEU = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cAET = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cAES = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.cCreator = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel7 = new System.Windows.Forms.Panel();
             this.bDeleteRole = new System.Windows.Forms.Button();
             this.bChangeRole = new System.Windows.Forms.Button();
@@ -93,11 +99,6 @@
             this.bBusyTaskFail = new System.Windows.Forms.Button();
             this.bBusyTaskFinish = new System.Windows.Forms.Button();
             this.departamentBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.lNameDepartText = new System.Windows.Forms.Label();
-            this.lNameDepart = new System.Windows.Forms.Label();
-            this.lUser = new System.Windows.Forms.Label();
-            this.lNameUser = new System.Windows.Forms.Label();
-            this.cAER = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControlForm.SuspendLayout();
@@ -148,6 +149,42 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(584, 370);
             this.panel2.TabIndex = 1;
+            // 
+            // lNameUser
+            // 
+            this.lNameUser.AutoSize = true;
+            this.lNameUser.Location = new System.Drawing.Point(382, 9);
+            this.lNameUser.Name = "lNameUser";
+            this.lNameUser.Size = new System.Drawing.Size(103, 13);
+            this.lNameUser.TabIndex = 4;
+            this.lNameUser.Text = "Имя пользователя";
+            // 
+            // lUser
+            // 
+            this.lUser.AutoSize = true;
+            this.lUser.Location = new System.Drawing.Point(289, 9);
+            this.lUser.Name = "lUser";
+            this.lUser.Size = new System.Drawing.Size(83, 13);
+            this.lUser.TabIndex = 3;
+            this.lUser.Text = "Пользователь:";
+            // 
+            // lNameDepart
+            // 
+            this.lNameDepart.AutoSize = true;
+            this.lNameDepart.Location = new System.Drawing.Point(57, 9);
+            this.lNameDepart.Name = "lNameDepart";
+            this.lNameDepart.Size = new System.Drawing.Size(95, 13);
+            this.lNameDepart.TabIndex = 2;
+            this.lNameDepart.Text = "Название отдела";
+            // 
+            // lNameDepartText
+            // 
+            this.lNameDepartText.AutoSize = true;
+            this.lNameDepartText.Location = new System.Drawing.Point(9, 9);
+            this.lNameDepartText.Name = "lNameDepartText";
+            this.lNameDepartText.Size = new System.Drawing.Size(41, 13);
+            this.lNameDepartText.TabIndex = 1;
+            this.lNameDepartText.Text = "Отдел:";
             // 
             // tabControlForm
             // 
@@ -289,28 +326,30 @@
             this.cNameRole.Text = "Название";
             this.cNameRole.Width = 66;
             // 
+            // cCreator
+            // 
+            this.cCreator.Text = "Р. отделы";
+            this.cCreator.Width = 62;
+            // 
+            // cAER
+            // 
+            this.cAER.Text = "Р. роли";
+            this.cAER.Width = 51;
+            // 
             // cAEU
             // 
-            this.cAEU.DisplayIndex = 2;
             this.cAEU.Text = "Р. раб.";
             this.cAEU.Width = 48;
             // 
             // cAET
             // 
-            this.cAET.DisplayIndex = 3;
             this.cAET.Text = "Р. задачи";
             this.cAET.Width = 61;
             // 
             // cAES
             // 
-            this.cAES.DisplayIndex = 4;
             this.cAES.Text = "Р. з.п.";
             this.cAES.Width = 46;
-            // 
-            // cCreator
-            // 
-            this.cCreator.Text = "Р. отделы";
-            this.cCreator.Width = 62;
             // 
             // panel7
             // 
@@ -693,47 +732,6 @@
             this.bBusyTaskFinish.UseVisualStyleBackColor = true;
             this.bBusyTaskFinish.Click += new System.EventHandler(this.bBusyTaskFinish_Click);
             // 
-            // lNameDepartText
-            // 
-            this.lNameDepartText.AutoSize = true;
-            this.lNameDepartText.Location = new System.Drawing.Point(9, 9);
-            this.lNameDepartText.Name = "lNameDepartText";
-            this.lNameDepartText.Size = new System.Drawing.Size(41, 13);
-            this.lNameDepartText.TabIndex = 1;
-            this.lNameDepartText.Text = "Отдел:";
-            // 
-            // lNameDepart
-            // 
-            this.lNameDepart.AutoSize = true;
-            this.lNameDepart.Location = new System.Drawing.Point(57, 9);
-            this.lNameDepart.Name = "lNameDepart";
-            this.lNameDepart.Size = new System.Drawing.Size(95, 13);
-            this.lNameDepart.TabIndex = 2;
-            this.lNameDepart.Text = "Название отдела";
-            // 
-            // lUser
-            // 
-            this.lUser.AutoSize = true;
-            this.lUser.Location = new System.Drawing.Point(289, 9);
-            this.lUser.Name = "lUser";
-            this.lUser.Size = new System.Drawing.Size(83, 13);
-            this.lUser.TabIndex = 3;
-            this.lUser.Text = "Пользователь:";
-            // 
-            // lNameUser
-            // 
-            this.lNameUser.AutoSize = true;
-            this.lNameUser.Location = new System.Drawing.Point(382, 9);
-            this.lNameUser.Name = "lNameUser";
-            this.lNameUser.Size = new System.Drawing.Size(103, 13);
-            this.lNameUser.TabIndex = 4;
-            this.lNameUser.Text = "Имя пользователя";
-            // 
-            // cAER
-            // 
-            this.cAER.Text = "Р. роли";
-            this.cAER.Width = 51;
-            // 
             // ProcessWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -741,6 +739,7 @@
             this.ClientSize = new System.Drawing.Size(584, 411);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(600, 450);
             this.MinimumSize = new System.Drawing.Size(600, 450);
             this.Name = "ProcessWindow";

@@ -63,6 +63,30 @@
   <ItemGroup>
     <Compile Include="Class\Company.cs" />
     <Compile Include="Class\Departament.cs" />
+    <Compile Include="Forms\AddDepartament.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddDepartament.Designer.cs">
+      <DependentUpon>AddDepartament.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AddRole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddRole.Designer.cs">
+      <DependentUpon>AddRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AddTask.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddTask.Designer.cs">
+      <DependentUpon>AddTask.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AddUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddUser.Designer.cs">
+      <DependentUpon>AddUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ProcessWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +124,18 @@
     <Compile Include="Class\Role.cs" />
     <Compile Include="Class\Task.cs" />
     <Compile Include="Class\User.cs" />
+    <EmbeddedResource Include="Forms\AddDepartament.resx">
+      <DependentUpon>AddDepartament.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddRole.resx">
+      <DependentUpon>AddRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddTask.resx">
+      <DependentUpon>AddTask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddUser.resx">
+      <DependentUpon>AddUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ProcessWindow.resx">
       <DependentUpon>ProcessWindow.cs</DependentUpon>
     </EmbeddedResource>

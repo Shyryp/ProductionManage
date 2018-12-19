@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StartNewCompany));
             this.label1 = new System.Windows.Forms.Label();
             this.tbNameCompany = new System.Windows.Forms.TextBox();
             this.bEnter = new System.Windows.Forms.Button();
@@ -79,6 +80,7 @@
             this.Controls.Add(this.bEnter);
             this.Controls.Add(this.tbNameCompany);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "StartNewCompany";
             this.Text = "Создание компании";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.StartNewCompany_FormClosing);

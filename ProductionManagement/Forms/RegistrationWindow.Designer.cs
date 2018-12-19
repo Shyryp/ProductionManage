@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistrationWindow));
             this.bEnterReg = new System.Windows.Forms.Button();
             this.tbNewLogin = new System.Windows.Forms.TextBox();
             this.tbNewPassword = new System.Windows.Forms.TextBox();
@@ -186,6 +187,7 @@
             this.Controls.Add(this.tbNewPassword);
             this.Controls.Add(this.tbNewLogin);
             this.Controls.Add(this.bEnterReg);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RegistrationWindow";
             this.Text = "RegistrationWindow";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RegistrationWindow_FormClosing);

@@ -63,6 +63,8 @@ namespace ProductionManagement
         private async void ProcessWindow_Load(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+            this.Text = company.NameCompany;
+            this.lNameUser.Text = workers[0].NameUser;
             string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Shyrik\source\repos\ProductionManagement\ProductionManagement\DatabasePM.mdf;Integrated Security=True";
             sqlConnection = new SqlConnection(connectionString);
             await sqlConnection.OpenAsync();
@@ -132,12 +134,14 @@ namespace ProductionManagement
 
         private void bCreateDepart_Click(object sender, EventArgs e)
         {
-
+            AddDepartament addDepartament = new AddDepartament();
+            addDepartament.Show();
         }
 
         private void bChangeDepart_Click(object sender, EventArgs e)
         {
-
+            AddDepartament addDepartament = new AddDepartament();
+            addDepartament.Show();
         }
 
         private void bDeleteDepart_Click(object sender, EventArgs e)
@@ -152,12 +156,14 @@ namespace ProductionManagement
 
         private void bAddUser_Click(object sender, EventArgs e)
         {
-
+            AddUser addUser = new AddUser();
+            addUser.Show();
         }
 
         private void bChangeUser_Click(object sender, EventArgs e)
         {
-
+            AddUser addUser = new AddUser();
+            addUser.Show();
         }
 
         private void bDeleteUser_Click(object sender, EventArgs e)
@@ -172,12 +178,14 @@ namespace ProductionManagement
 
         private void bCreateTask_Click(object sender, EventArgs e)
         {
-
+            AddTask addTask = new AddTask();
+            addTask.Show();
         }
 
         private void bChangeTask_Click(object sender, EventArgs e)
         {
-
+            AddTask addTask = new AddTask();
+            addTask.Show();
         }
 
         private void bDeleteTask_Click(object sender, EventArgs e)
@@ -227,12 +235,14 @@ namespace ProductionManagement
 
         private void bCreateRole_Click(object sender, EventArgs e)
         {
-
+            AddRole addRole = new AddRole();
+            addRole.Show();
         }
 
         private void bChangeRole_Click(object sender, EventArgs e)
         {
-
+            AddRole addRole = new AddRole();
+            addRole.Show();
         }
 
         private void bDeleteRole_Click(object sender, EventArgs e)
