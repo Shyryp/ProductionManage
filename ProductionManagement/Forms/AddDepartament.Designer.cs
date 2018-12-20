@@ -70,7 +70,7 @@
             this.Controls.Add(this.bSaveNameDep);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddDepartament";
-            this.Text = "AddDepartament";
+            this.Text = "Отдел";
             this.ResumeLayout(false);
             this.PerformLayout();
 

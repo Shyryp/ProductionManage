@@ -141,7 +141,7 @@
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddRole";
-            this.Text = "AddRole";
+            this.Text = "Роль";
             this.ResumeLayout(false);
             this.PerformLayout();
 

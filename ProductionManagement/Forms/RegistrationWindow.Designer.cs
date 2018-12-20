@@ -189,7 +189,7 @@
             this.Controls.Add(this.bEnterReg);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RegistrationWindow";
-            this.Text = "RegistrationWindow";
+            this.Text = "Регистрация";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RegistrationWindow_FormClosing);
             this.Load += new System.EventHandler(this.RegistrationWindow_Load);
             this.ResumeLayout(false);

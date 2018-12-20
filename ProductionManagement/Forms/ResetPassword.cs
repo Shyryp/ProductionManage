@@ -48,6 +48,8 @@ namespace ProductionManagement
                             tbNewPassword.Enabled = true;
                             lQeustion.Text = Convert.ToString(sqlDataReader["SecretQeustion"]);
                             lQeustion.Visible = true;
+                            label3.Enabled = true;
+                            label2.Enabled = true;
                             step++;
                             sqlDataReader.Close();
                             return;
